@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import SectionHeading from "@/components/SectionHeading";
@@ -23,11 +24,22 @@ export default async function TeamPage() {
       {lucy && (
         <section className="mx-auto max-w-7xl px-4 py-16 lg:px-8" aria-label="Founder profile">
           <div className="grid items-start gap-10 lg:grid-cols-[320px_1fr]">
-            <div className="aspect-[4/5] w-full max-w-xs border-4 border-ink bg-sand shadow-[10px_10px_0_0_var(--color-forest)]">
-              {/* Founder photo supplied by BNN — /team/lucy-quist.jpg */}
-              <div className="flex h-full items-center justify-center p-6 text-center font-display font-bold text-forest">
-                Photo of Lucy Quist
-              </div>
+            <div className="relative aspect-4/5 w-full max-w-xs overflow-hidden border-4 border-ink bg-sand shadow-[10px_10px_0_0_var(--color-forest)]">
+              {/* Placeholder portrait until BNN supplies the real photograph. */}
+              {lucy.photo ? (
+                <Image
+                  src={lucy.photo}
+                  alt={lucy.name}
+                  fill
+                  priority
+                  sizes="320px"
+                  className="object-cover object-top"
+                />
+              ) : (
+                <div className="flex h-full items-center justify-center p-6 text-center font-display font-bold text-forest">
+                  Photo of {lucy.name}
+                </div>
+              )}
             </div>
             <div>
               <p className="eyebrow">Founder</p>

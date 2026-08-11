@@ -12,8 +12,9 @@
   --color-ivory: #faf6ec;
   --color-sand: #efe7d4;
 
-  --font-display: var(--font-unbounded), sans-serif;
-  --font-body: var(--font-archivo), sans-serif;
+  --font-display: var(--font-bricolage), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+  --font-mono: var(--font-jet), ui-monospace, monospace;
 }
 
 html { scroll-behavior: smooth; }
@@ -46,10 +47,11 @@ h1, h2, h3, .font-display {
 .kente-band--thin { height: 5px; }
 
 .eyebrow {
-  font-family: var(--font-body);
+  font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.22em;
+  /* Mono is already wide — less tracking than the proportional face needed. */
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--color-forest);
 }

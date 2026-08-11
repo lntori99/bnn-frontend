@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
@@ -29,11 +30,21 @@ export default function MediaFeature({ items }: { items: MediaItem[] }) {
           {items.map((m) => (
             <SwiperSlide key={m.id} className="pb-10">
               <Link href="/media" className="group block border border-ivory/15 bg-ink-soft">
-                <div className="flex aspect-video items-center justify-center bg-forest-deep">
+                <div className="relative flex aspect-video items-center justify-center overflow-hidden bg-forest-deep">
+                  {m.thumbnail && (
+                    <Image
+                      src={m.thumbnail}
+                      alt=""
+                      aria-hidden="true"
+                      fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover opacity-70 transition group-hover:opacity-50"
+                    />
+                  )}
                   {m.type === "video" ? (
-                    <HiPlay className="h-12 w-12 text-gold transition group-hover:scale-110" aria-hidden="true" />
+                    <HiPlay className="relative h-12 w-12 text-gold drop-shadow-lg transition group-hover:scale-110" aria-hidden="true" />
                   ) : (
-                    <HiSpeakerWave className="h-12 w-12 text-gold transition group-hover:scale-110" aria-hidden="true" />
+                    <HiSpeakerWave className="relative h-12 w-12 text-gold drop-shadow-lg transition group-hover:scale-110" aria-hidden="true" />
                   )}
                 </div>
                 <div className="p-4">

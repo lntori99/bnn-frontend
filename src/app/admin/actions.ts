@@ -5,7 +5,9 @@ import { redirect } from "next/navigation";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:5000/api";
 
-export async function login(_prev: { error?: string }, formData: FormData) {
+export type LoginState = { error?: string };
+
+export async function login(_prev: LoginState, formData: FormData): Promise<LoginState> {
   const email = String(formData.get("email") ?? "");
   const password = String(formData.get("password") ?? "");
 

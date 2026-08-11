@@ -1,18 +1,26 @@
 import type { Metadata } from "next";
-import { Unbounded, Archivo } from "next/font/google";
+import { Bricolage_Grotesque, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import MainLayout from "@/shared/mainlayout";
 import Providers from "@/core/providers";
+import { placeholderImages } from "@/data/placeholder-images";
 
-const unbounded = Unbounded({
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  variable: "--font-unbounded",
-  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-bricolage",
+  display: "swap",
 });
 
-const archivo = Archivo({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-archivo",
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jet",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -26,13 +34,16 @@ export const metadata: Metadata = {
     title: "Bold New Normal",
     description: "Africa's transformation, driven by Africans.",
     type: "website",
-    images: ["/images/og-cover.jpg"],
+    images: [placeholderImages.ogCover],
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${unbounded.variable} ${archivo.variable}`}>
+    <html
+      lang="en"
+      className={`${bricolage.variable} ${inter.variable} ${jetbrains.variable}`}
+    >
       <body>
         <Providers>
           <MainLayout>{children}</MainLayout>

@@ -2,6 +2,7 @@ import { EventItem } from "@/models/response/event-response";
 import { MediaItem } from "@/models/response/media-response";
 import { TeamMember } from "@/models/response/team-response";
 import { RoadmapMilestone, FocusPage } from "@/models/response/content-response";
+import { placeholderImages } from "./placeholder-images";
 
 /** Placeholder content — final approved copy is supplied by BNN via the CMS. */
 
@@ -10,7 +11,7 @@ export const fallbackEvents: EventItem[] = [
     id: 1,
     slug: "bnn-summit-2026",
     title: "Bold New Normal Summit 2026",
-    image: "/images/event-summit.jpg",
+    image: placeholderImages.events.summit2026,
     description:
       "A gathering of founders, builders and leaders shaping African-led enterprise. Two days of talks, working sessions and sector meetups.",
     agenda: "Day 1 — Enterprise & capital. Day 2 — Sector communities & the 2027 focus.",
@@ -31,7 +32,7 @@ export const fallbackEvents: EventItem[] = [
     id: 2,
     slug: "bnn-conference-2025",
     title: "BNN Annual Conference 2025",
-    image: "/images/event-2025.jpg",
+    image: placeholderImages.events.conference2025,
     description:
       "The 2025 conference explored entrepreneurship as the engine of African transformation.",
     speakers: [{ name: "Lucy Quist", title: "Founder" }],
@@ -50,7 +51,7 @@ export const fallbackMedia: MediaItem[] = [
     title: "Why Africa needs a bold new normal",
     type: "video",
     embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    thumbnail: "/images/media-1.jpg",
+    thumbnail: placeholderImages.media.keynote,
     event: "BNN Annual Conference 2025",
     speaker: "Lucy Quist",
     topic: "Leadership",
@@ -62,7 +63,7 @@ export const fallbackMedia: MediaItem[] = [
     title: "Building enterprises that scale",
     type: "video",
     embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    thumbnail: "/images/media-2.jpg",
+    thumbnail: placeholderImages.media.enterprise,
     event: "BNN Annual Conference 2025",
     speaker: "Panel",
     topic: "Entrepreneurship",
@@ -87,7 +88,7 @@ export const fallbackTeam: TeamMember[] = [
     id: 1,
     name: "Lucy Quist",
     title: "Founder, Bold New Normal",
-    photo: "/team/lucy-quist.jpg",
+    photo: placeholderImages.team.founder,
     isFounder: true,
     shortBio:
       "Engineer, business leader and author of The Bold New Normal. Lucy has led at the intersection of technology, telecoms and finance across Africa and Europe.",
@@ -99,14 +100,14 @@ export const fallbackTeam: TeamMember[] = [
     id: 2,
     name: "Team Member",
     title: "Programmes Lead",
-    photo: "/team/member-2.jpg",
+    photo: placeholderImages.team.member2,
     shortBio: "Placeholder profile — managed through the CMS.",
   },
   {
     id: 3,
     name: "Team Member",
     title: "Partnerships Lead",
-    photo: "/team/member-3.jpg",
+    photo: placeholderImages.team.member3,
     shortBio: "Placeholder profile — managed through the CMS.",
   },
 ];

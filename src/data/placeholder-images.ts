@@ -1,0 +1,48 @@
+/**
+ * TEMPORARY placeholder imagery — Unsplash, used until BNN supplies final assets.
+ *
+ * Every photo here has been checked to resolve and to be subject-appropriate for a
+ * pan-African movement. When the real assets arrive, drop them in /public and delete
+ * this file; the only consumers are `@/data/fallback` and the components listed below.
+ *
+ * Requires `images.unsplash.com` in next.config.ts remotePatterns.
+ */
+
+const UNSPLASH = "https://images.unsplash.com";
+
+/** Unsplash serves resized/optimised derivatives from query params. */
+function photo(id: string, w: number, h?: number) {
+  const crop = h ? `&h=${h}` : "";
+  return `${UNSPLASH}/${id}?auto=format&fit=crop&w=${w}${crop}&q=80`;
+}
+
+export const placeholderImages = {
+  /** Black Star Square / Independence Arch, Accra — "Freedom and Justice, AD 1957". */
+  hero: photo("photo-1630386226447-af0a955c1009", 2000, 1100),
+  /** Social share card. */
+  ogCover: photo("photo-1630386226447-af0a955c1009", 1200, 630),
+
+  events: {
+    /** Two women at an African conference. */
+    summit2026: photo("photo-1744973149087-179e3ed54eae", 1200, 675),
+    /** Conference audience, low light. */
+    conference2025: photo("photo-1540575467063-178a50c2df87", 1200, 675),
+  },
+
+  media: {
+    /** Woman speaking at a podium — stands in for the keynote. */
+    keynote: photo("photo-1744973149714-46786187c6aa", 800, 450),
+    /** Market trader — stands in for the enterprise/scale session. */
+    enterprise: photo("photo-1687422808565-929533931584", 800, 450),
+  },
+
+  team: {
+    /** Placeholder for the founder portrait. */
+    founder: photo("photo-1573497019418-b400bb3ab074", 800, 1000),
+    member2: photo("photo-1563132337-f159f484226c", 600, 750),
+    member3: photo("photo-1614023342667-6f060e9d1e04", 600, 750),
+  },
+
+  /** Kente-pattern textiles — echoes the site's kente band motif. */
+  community: photo("photo-1692689383138-c2df3476072c", 1200, 800),
+} as const;

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Countdown from "@/components/Countdown";
@@ -47,8 +48,22 @@ export default async function EventDetailPage({ params }: Props) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <section className="on-dark bg-ink text-ivory">
-        <div className="mx-auto max-w-7xl px-4 py-16 lg:px-8">
+      <section className="on-dark relative overflow-hidden bg-ink text-ivory">
+        {event.image && (
+          <>
+            <Image
+              src={event.image}
+              alt=""
+              aria-hidden="true"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover opacity-30"
+            />
+            <div aria-hidden="true" className="absolute inset-0 bg-linear-to-r from-ink via-ink/85 to-ink/40" />
+          </>
+        )}
+        <div className="relative mx-auto max-w-7xl px-4 py-16 lg:px-8">
           <p className="eyebrow">{isPast ? "Past event" : "Upcoming event"}</p>
           <h1 className="mt-2 max-w-4xl text-4xl font-bold uppercase sm:text-5xl">{event.title}</h1>
           <p className="mt-4 text-lg text-ivory/80">
@@ -70,7 +85,7 @@ export default async function EventDetailPage({ params }: Props) {
             <Link href="/events" className="btn btn-outline text-ivory">All events</Link>
           </div>
         </div>
-        <div className="kente-band" aria-hidden="true" />
+        <div className="kente-band relative" aria-hidden="true" />
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-16 lg:px-8">

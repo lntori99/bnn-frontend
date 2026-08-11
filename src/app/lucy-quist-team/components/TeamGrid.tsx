@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Modal from "@/components/Modal";
 import { TeamMember } from "@/models/response/team-response";
 
@@ -16,8 +17,18 @@ export default function TeamGrid({ members }: { members: TeamMember[] }) {
               onClick={() => setActive(m)}
               className="block h-full w-full border border-ink/15 bg-ivory p-6 text-left transition hover:-translate-y-1 hover:border-gold"
             >
-              <div className="mb-4 flex h-40 items-center justify-center bg-sand font-display text-sm font-bold text-forest">
-                Photo
+              <div className="relative mb-4 flex h-40 items-center justify-center overflow-hidden bg-sand font-display text-sm font-bold text-forest">
+                {m.photo ? (
+                  <Image
+                    src={m.photo}
+                    alt={m.name}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover object-top"
+                  />
+                ) : (
+                  "Photo"
+                )}
               </div>
               <h3 className="font-display text-lg font-bold">{m.name}</h3>
               <p className="text-sm font-semibold text-forest">{m.title}</p>

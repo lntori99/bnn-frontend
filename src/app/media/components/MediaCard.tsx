@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { HiPlay, HiSpeakerWave } from "react-icons/hi2";
 import { MediaItem } from "@/models/response/media-response";
 
@@ -26,10 +27,20 @@ export default function MediaCard({ item }: { item: MediaItem }) {
             className="group absolute inset-0 flex items-center justify-center bg-forest-deep"
             aria-label={`Play: ${item.title}`}
           >
+            {item.thumbnail && (
+              <Image
+                src={item.thumbnail}
+                alt=""
+                aria-hidden="true"
+                fill
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                className="object-cover opacity-70 transition group-hover:opacity-50"
+              />
+            )}
             {item.type === "video" ? (
-              <HiPlay className="h-14 w-14 text-gold transition group-hover:scale-110" aria-hidden="true" />
+              <HiPlay className="relative h-14 w-14 text-gold drop-shadow-lg transition group-hover:scale-110" aria-hidden="true" />
             ) : (
-              <HiSpeakerWave className="h-14 w-14 text-gold transition group-hover:scale-110" aria-hidden="true" />
+              <HiSpeakerWave className="relative h-14 w-14 text-gold drop-shadow-lg transition group-hover:scale-110" aria-hidden="true" />
             )}
           </button>
         )}
