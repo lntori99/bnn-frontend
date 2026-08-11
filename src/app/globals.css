@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  /* BNN palette — ink forest, Sahel gold, kente clay, ivory */
+  --color-ink: #0f1511;
+  --color-ink-soft: #17211b;
+  --color-forest: #1c5a3a;
+  --color-forest-deep: #123f28;
+  --color-gold: #e7a83b;
+  --color-gold-soft: #f3c877;
+  --color-clay: #c2452d;
+  --color-ivory: #faf6ec;
+  --color-sand: #efe7d4;
+
+  --font-display: var(--font-unbounded), sans-serif;
+  --font-body: var(--font-archivo), sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-ivory);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+/* Signature: kente band — woven stripe motif used as dividers & underlines */
+.kente-band {
+  height: 10px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-gold) 0 48px,
+    var(--color-ink) 48px 60px,
+    var(--color-forest) 60px 108px,
+    var(--color-ink) 108px 120px,
+    var(--color-clay) 120px 152px,
+    var(--color-ink) 152px 164px
+  );
+}
+.kente-band--thin { height: 5px; }
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-forest);
+}
+.on-dark .eyebrow { color: var(--color-gold); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  padding: 0.8rem 1.5rem;
+  border-radius: 2px;
+  transition: transform 120ms ease, background 120ms ease, color 120ms ease;
+  font-size: 0.95rem;
+}
+.btn:focus-visible { outline: 3px solid var(--color-gold); outline-offset: 2px; }
+.btn:hover { transform: translateY(-1px); }
+.btn-gold { background: var(--color-gold); color: var(--color-ink); }
+.btn-gold:hover { background: var(--color-gold-soft); }
+.btn-forest { background: var(--color-forest); color: var(--color-ivory); }
+.btn-forest:hover { background: var(--color-forest-deep); }
+.btn-outline { border: 2px solid currentColor; }
+
+.field {
+  width: 100%;
+  border: 1.5px solid #d8d0bd;
+  background: #fff;
+  padding: 0.7rem 0.9rem;
+  border-radius: 2px;
+  font-size: 0.95rem;
+}
+.field:focus { outline: 2px solid var(--color-forest); outline-offset: 1px; }
+label { font-weight: 600; font-size: 0.85rem; display: block; margin-bottom: 0.35rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
