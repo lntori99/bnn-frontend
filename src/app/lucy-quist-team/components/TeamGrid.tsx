@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Modal from "@/components/Modal";
+import Modal from "@/components/modal";
 import { TeamMember } from "@/models/response/team-response";
 
 export default function TeamGrid({ members }: { members: TeamMember[] }) {
@@ -47,7 +47,7 @@ export default function TeamGrid({ members }: { members: TeamMember[] }) {
             {active.links && (
               <div className="mt-5 flex gap-3">
                 {active.links.map((l) => (
-                  <a key={l.url} href={l.url} target="_blank" rel="noopener noreferrer" className="btn btn-forest">
+                  <a key={l.url} href={l.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xs bg-forest px-6 py-[0.8rem] text-[0.95rem] font-bold text-ivory transition duration-150 ease-out hover:-translate-y-px hover:bg-forest-deep focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2">
                     {l.label}
                   </a>
                 ))}

@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Countdown from "@/components/Countdown";
-import Reveal from "@/components/Reveal";
+import Countdown from "@/components/countdown";
+import Reveal from "@/components/reveal";
 import { EventItem } from "@/models/response/event-response";
 
 export default function FeaturedEvent({ event }: { event: EventItem }) {
@@ -22,11 +22,11 @@ export default function FeaturedEvent({ event }: { event: EventItem }) {
             <Countdown target={event.startsAt} />
             <div className="flex gap-3">
               {event.registrationUrl && (
-                <a href={event.registrationUrl} target="_blank" rel="noopener noreferrer" className="btn btn-gold">
+                <a href={event.registrationUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xs bg-gold px-6 py-[0.8rem] text-[0.95rem] font-bold text-ink transition duration-150 ease-out hover:-translate-y-px hover:bg-gold-soft focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2">
                   Register
                 </a>
               )}
-              <Link href={`/events/${event.slug}`} className="btn btn-outline text-ivory">
+              <Link href={`/events/${event.slug}`} className="inline-flex items-center gap-2 rounded-xs border-2 border-current px-6 py-[0.8rem] text-[0.95rem] font-bold transition duration-150 ease-out hover:-translate-y-px focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2 text-ivory">
                 Event details
               </Link>
             </div>

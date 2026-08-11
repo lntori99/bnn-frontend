@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import PageHeader from "@/components/PageHeader";
-import CTASection from "@/components/CTASection";
-import Reveal from "@/components/Reveal";
+import PageHeader from "@/components/pageheader";
+import CTASection from "@/components/ctasection";
+import Reveal from "@/components/reveal";
 import { getFocusPage, getFocusPages } from "@/services/content";
 
 interface Props {

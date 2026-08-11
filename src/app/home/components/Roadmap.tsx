@@ -1,5 +1,5 @@
-import SectionHeading from "@/components/SectionHeading";
-import Reveal from "@/components/Reveal";
+import SectionHeading from "@/components/sectionheading";
+import Reveal from "@/components/reveal";
 import { RoadmapMilestone } from "@/models/response/content-response";
 
 export default function Roadmap({ milestones }: { milestones: RoadmapMilestone[] }) {

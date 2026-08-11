@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import SectionHeading from "@/components/SectionHeading";
+import SectionHeading from "@/components/sectionheading";
 import { MediaItem } from "@/models/response/media-response";
 import { HiPlay, HiSpeakerWave } from "react-icons/hi2";
 
@@ -16,7 +16,7 @@ export default function MediaFeature({ items }: { items: MediaItem[] }) {
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeading eyebrow="From the archive" title="Watch & listen" />
-          <Link href="/media" className="btn btn-outline text-ivory">Full media library</Link>
+          <Link href="/media" className="inline-flex items-center gap-2 rounded-xs border-2 border-current px-6 py-[0.8rem] text-[0.95rem] font-bold transition duration-150 ease-out hover:-translate-y-px focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2 text-ivory">Full media library</Link>
         </div>
         <Swiper
           className="mt-10"

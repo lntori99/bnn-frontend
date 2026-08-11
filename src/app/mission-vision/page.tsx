@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import PageHeader from "@/components/PageHeader";
-import Reveal from "@/components/Reveal";
-import CTASection from "@/components/CTASection";
+import PageHeader from "@/components/pageheader";
+import Reveal from "@/components/reveal";
+import CTASection from "@/components/ctasection";
 
 export const metadata: Metadata = {
   title: "Mission & Vision",

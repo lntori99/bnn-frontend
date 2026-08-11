@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { sectors } from "@/data/sectors";
-import JoinForm from "./JoinForm";
+import JoinForm from "./joinform";
 import { useAppDispatch, useAppSelector } from "@/core/hook";
 import { selectSector } from "@/core/store";
 

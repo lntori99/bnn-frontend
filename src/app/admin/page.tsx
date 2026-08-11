@@ -24,7 +24,7 @@ export default function AdminLoginPage() {
             {state.error}
           </p>
         )}
-        <button type="submit" disabled={pending} className="btn btn-forest w-fit disabled:opacity-60">
+        <button type="submit" disabled={pending} className="inline-flex items-center gap-2 rounded-xs bg-forest px-6 py-[0.8rem] text-[0.95rem] font-bold text-ivory transition duration-150 ease-out hover:-translate-y-px hover:bg-forest-deep focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2 w-fit disabled:opacity-60">
           {pending ? "Signing in…" : "Sign in"}
         </button>
       </form>

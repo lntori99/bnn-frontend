@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import PageHeader from "@/components/PageHeader";
-import TeamForm from "./TeamForm";
+import PageHeader from "@/components/pageheader";
+import TeamForm from "./teamform";
 
 export const metadata: Metadata = {
   title: "Join the Team",

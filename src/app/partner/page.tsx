@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import PageHeader from "@/components/PageHeader";
-import PartnerForm from "./components/PartnerForm";
-import DonationDetails from "./components/DonationDetails";
-import Reveal from "@/components/Reveal";
+import PageHeader from "@/components/pageheader";
+import PartnerForm from "./components/partnerform";
+import DonationDetails from "./components/donationdetails";
+import Reveal from "@/components/reveal";
 import { getDonationDetails } from "@/services/content";
 
 export const metadata: Metadata = {

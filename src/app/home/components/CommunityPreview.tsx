@@ -1,6 +1,6 @@
 import Link from "next/link";
-import SectionHeading from "@/components/SectionHeading";
-import Reveal from "@/components/Reveal";
+import SectionHeading from "@/components/sectionheading";
+import Reveal from "@/components/reveal";
 import { sectors } from "@/data/sectors";
 
 export default function CommunityPreview() {
@@ -26,7 +26,7 @@ export default function CommunityPreview() {
           ))}
         </div>
         <div className="mt-10 text-center">
-          <Link href="/community" className="btn btn-forest">Join the Community</Link>
+          <Link href="/community" className="inline-flex items-center gap-2 rounded-xs bg-forest px-6 py-[0.8rem] text-[0.95rem] font-bold text-ivory transition duration-150 ease-out hover:-translate-y-px hover:bg-forest-deep focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2">Join the Community</Link>
         </div>
       </div>
     </section>

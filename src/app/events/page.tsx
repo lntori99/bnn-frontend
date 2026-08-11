@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import PageHeader from "@/components/PageHeader";
-import EventCard from "./components/EventCard";
-import CTASection from "@/components/CTASection";
+import PageHeader from "@/components/pageheader";
+import EventCard from "./components/eventcard";
+import CTASection from "@/components/ctasection";
 import { getEvents } from "@/services/events";
 
 export const metadata: Metadata = {

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import PageHeader from "@/components/PageHeader";
-import SectionHeading from "@/components/SectionHeading";
-import TeamGrid from "./components/TeamGrid";
-import CTASection from "@/components/CTASection";
+import PageHeader from "@/components/pageheader";
+import SectionHeading from "@/components/sectionheading";
+import TeamGrid from "./components/teamgrid";
+import CTASection from "@/components/ctasection";
 import { getTeam } from "@/services/team";
 
 export const metadata: Metadata = {
@@ -49,7 +49,7 @@ export default async function TeamPage() {
               <p className="mt-6 max-w-3xl text-lg opacity-85">{lucy.fullBio ?? lucy.shortBio}</p>
               <div className="mt-6 flex flex-wrap gap-3">
                 {lucy.links?.map((l) => (
-                  <a key={l.url} href={l.url} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+                  <a key={l.url} href={l.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xs border-2 border-current px-6 py-[0.8rem] text-[0.95rem] font-bold transition duration-150 ease-out hover:-translate-y-px focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2">
                     {l.label}
                   </a>
                 ))}
@@ -78,7 +78,7 @@ export default async function TeamPage() {
             Why Lucy Quist believes leadership is the multiplier on Africa's future — and
             what BNN will do about it.
           </p>
-          <span className="btn btn-gold mt-6">Explore the focus</span>
+          <span className="inline-flex items-center gap-2 rounded-xs bg-gold px-6 py-[0.8rem] text-[0.95rem] font-bold text-ink transition duration-150 ease-out hover:-translate-y-px hover:bg-gold-soft focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2 mt-6">Explore the focus</span>
         </Link>
       </section>
       <CTASection />

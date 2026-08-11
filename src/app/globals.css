@@ -1,23 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  /* BNN palette — ink forest, Sahel gold, kente clay, ivory */
-  --color-ink: #0f1511;
-  --color-ink-soft: #17211b;
-  --color-forest: #1c5a3a;
-  --color-forest-deep: #123f28;
+  /* BNN palette — charcoal ink, brand blue, Sahel gold, kente clay, ivory */
+  --color-ink: #242021;
+  --color-ink-soft: #322d2e;
+  --color-forest: #177baf;
+  --color-forest-deep: #0e5c87;
   --color-gold: #e7a83b;
   --color-gold-soft: #f3c877;
   --color-clay: #c2452d;
   --color-ivory: #faf6ec;
   --color-sand: #efe7d4;
 
-  --font-display: var(--font-bricolage), sans-serif;
-  --font-body: var(--font-inter), sans-serif;
-  --font-mono: var(--font-jet), ui-monospace, monospace;
+  --font-display: var(--font-satoshi), sans-serif;
+  --font-body: var(--font-satoshi), sans-serif;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 4rem; }
 
 body {
   font-family: var(--font-body);
@@ -57,24 +56,6 @@ h1, h2, h3, .font-display {
 }
 .on-dark .eyebrow { color: var(--color-gold); }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 700;
-  padding: 0.8rem 1.5rem;
-  border-radius: 2px;
-  transition: transform 120ms ease, background 120ms ease, color 120ms ease;
-  font-size: 0.95rem;
-}
-.btn:focus-visible { outline: 3px solid var(--color-gold); outline-offset: 2px; }
-.btn:hover { transform: translateY(-1px); }
-.btn-gold { background: var(--color-gold); color: var(--color-ink); }
-.btn-gold:hover { background: var(--color-gold-soft); }
-.btn-forest { background: var(--color-forest); color: var(--color-ivory); }
-.btn-forest:hover { background: var(--color-forest-deep); }
-.btn-outline { border: 2px solid currentColor; }
-
 .field {
   width: 100%;
   border: 1.5px solid #d8d0bd;
@@ -85,6 +66,21 @@ h1, h2, h3, .font-display {
 }
 .field:focus { outline: 2px solid var(--color-forest); outline-offset: 1px; }
 label { font-weight: 600; font-size: 0.85rem; display: block; margin-bottom: 0.35rem; }
+
+/* Hero carousel — brand-toned pagination dots over the full-bleed slides */
+.hero-swiper .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: var(--color-ivory);
+  opacity: 0.5;
+}
+.hero-swiper .swiper-pagination-bullet-active {
+  background: var(--color-gold);
+  opacity: 1;
+}
+.hero-swiper .swiper-pagination {
+  bottom: 20px !important;
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

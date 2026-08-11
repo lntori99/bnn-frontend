@@ -52,7 +52,7 @@ export default async function DashboardPage() {
           <h1 className="text-3xl font-bold">Submissions dashboard</h1>
         </div>
         <form action={logout}>
-          <button className="btn btn-outline">Sign out</button>
+          <button className="inline-flex items-center gap-2 rounded-xs border-2 border-current px-6 py-[0.8rem] text-[0.95rem] font-bold transition duration-150 ease-out hover:-translate-y-px focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2">Sign out</button>
         </form>
       </div>
       <Table title="Community applications" rows={community} extra={["sector", "country"]} />

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Reveal from "@/components/Reveal";
+import Reveal from "@/components/reveal";
 
 export default function FocusTeaser() {
   return (
@@ -15,7 +15,7 @@ export default function FocusTeaser() {
                 In 2027 the movement turns to the leadership Africa's enterprises and institutions need to scale.
               </p>
             </div>
-            <Link href="/focus/2027/governance-leadership" className="btn btn-forest">
+            <Link href="/focus/2027/governance-leadership" className="inline-flex items-center gap-2 rounded-xs bg-forest px-6 py-[0.8rem] text-[0.95rem] font-bold text-ivory transition duration-150 ease-out hover:-translate-y-px hover:bg-forest-deep focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2">
               Explore the 2027 focus
             </Link>
           </div>

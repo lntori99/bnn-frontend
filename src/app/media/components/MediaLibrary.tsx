@@ -1,8 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Pagination from "@/components/Pagination";
-import MediaCard from "./MediaCard";
+import Pagination from "@/components/pagination";
+import MediaCard from "./mediacard";
 import { MediaItem } from "@/models/response/media-response";
 
 const PAGE_SIZE = 9;

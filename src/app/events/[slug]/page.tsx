@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import Countdown from "@/components/Countdown";
-import CTASection from "@/components/CTASection";
+import Countdown from "@/components/countdown";
+import CTASection from "@/components/ctasection";
 import { getEvent, getEvents } from "@/services/events";
 
 interface Props {
@@ -48,7 +48,7 @@ export default async function EventDetailPage({ params }: Props) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <section className="on-dark relative overflow-hidden bg-ink text-ivory">
+      <section className="on-dark relative -mt-16 overflow-hidden bg-ink text-ivory">
         {event.image && (
           <>
             <Image
@@ -75,14 +75,14 @@ export default async function EventDetailPage({ params }: Props) {
           {!isPast && <Countdown target={event.startsAt} className="mt-8" />}
           <div className="mt-8 flex flex-wrap gap-4">
             {!isPast && event.registrationUrl && (
-              <a href={event.registrationUrl} target="_blank" rel="noopener noreferrer" className="btn btn-gold">
+              <a href={event.registrationUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xs bg-gold px-6 py-[0.8rem] text-[0.95rem] font-bold text-ink transition duration-150 ease-out hover:-translate-y-px hover:bg-gold-soft focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2">
                 Register for this event
               </a>
             )}
             {isPast && event.watchUrl && (
-              <Link href={event.watchUrl} className="btn btn-gold">Watch / Listen</Link>
+              <Link href={event.watchUrl} className="inline-flex items-center gap-2 rounded-xs bg-gold px-6 py-[0.8rem] text-[0.95rem] font-bold text-ink transition duration-150 ease-out hover:-translate-y-px hover:bg-gold-soft focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2">Watch / Listen</Link>
             )}
-            <Link href="/events" className="btn btn-outline text-ivory">All events</Link>
+            <Link href="/events" className="inline-flex items-center gap-2 rounded-xs border-2 border-current px-6 py-[0.8rem] text-[0.95rem] font-bold transition duration-150 ease-out hover:-translate-y-px focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2 text-ivory">All events</Link>
           </div>
         </div>
         <div className="kente-band relative" aria-hidden="true" />

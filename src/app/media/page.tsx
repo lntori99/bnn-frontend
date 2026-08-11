@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import PageHeader from "@/components/PageHeader";
-import MediaLibrary from "./components/MediaLibrary";
+import PageHeader from "@/components/pageheader";
+import MediaLibrary from "./components/medialibrary";
 import { getMedia } from "@/services/media";
 
 export const metadata: Metadata = {

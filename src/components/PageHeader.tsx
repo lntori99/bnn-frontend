@@ -6,7 +6,7 @@ interface Props {
 
 export default function PageHeader({ eyebrow, title, intro }: Props) {
   return (
-    <section className="on-dark bg-ink text-ivory">
+    <section className="on-dark -mt-16 bg-ink text-ivory">
       <div className="mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-20">
         {eyebrow && <p className="eyebrow">{eyebrow}</p>}
         <h1 className="mt-2 max-w-4xl text-4xl font-bold uppercase sm:text-5xl">{title}</h1>

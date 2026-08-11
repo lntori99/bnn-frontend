@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import PageHeader from "@/components/PageHeader";
-import JoinFlow from "./components/JoinFlow";
+import PageHeader from "@/components/pageheader";
+import JoinFlow from "./components/joinflow";
 
 export const metadata: Metadata = {
   title: "Join the Community",
