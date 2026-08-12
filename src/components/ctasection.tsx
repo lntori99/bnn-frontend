@@ -14,12 +14,12 @@ export default function CTASection() {
           <div key={c.t} className="border border-ivory/15 p-6">
             <h3 className="font-display text-xl font-bold">{c.t}</h3>
             <p className="mt-2 text-sm text-ivory/75">{c.d}</p>
-            <Link href={c.href} className="inline-flex items-center gap-2 rounded-xs bg-gold px-6 py-[0.8rem] text-[0.95rem] font-bold text-ink transition duration-150 ease-out hover:-translate-y-px hover:bg-gold-soft focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2 mt-5">{c.cta}</Link>
+            <Link href={c.href} className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-[0.8rem] text-[0.95rem] font-bold text-ink transition duration-150 ease-out hover:-translate-y-px hover:bg-gold-soft focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2 mt-5">{c.cta}</Link>
           </div>
         ))}
       </div>
       <div className="pb-14 text-center">
-        <a href={site.bookUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xs border-2 border-current px-6 py-[0.8rem] text-[0.95rem] font-bold transition duration-150 ease-out hover:-translate-y-px focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2 text-ivory">
+        <a href={site.bookUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border-2 border-current px-6 py-[0.8rem] text-[0.95rem] font-bold transition duration-150 ease-out hover:-translate-y-px focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2 text-ivory">
           Buy the Book
         </a>
       </div>

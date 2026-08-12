@@ -8,14 +8,16 @@ import Roadmap from "./components/roadmap";
 import CTASection from "@/components/ctasection";
 import { getEvents } from "@/services/events";
 import { getMedia } from "@/services/media";
-import { getRoadmap } from "@/services/content";
+import { getFocusPages, getRoadmap } from "@/services/content";
 
 export default async function Home() {
-  const [events, media, roadmap] = await Promise.all([
+  const [events, media, roadmap, focusPages] = await Promise.all([
     getEvents(),
     getMedia(),
     getRoadmap(),
+    getFocusPages(),
   ]);
+  const focus = focusPages[0];
 
   // Upcoming first, soonest first — the featured event leads the hero ticker.
   const tickerEvents = [...events]
@@ -26,7 +28,7 @@ export default async function Home() {
     <>
       <Hero events={tickerEvents} />
       <WhatIsBNN />
-      <FocusTeaser />
+      {focus && <FocusTeaser focus={focus} />}
       <MediaFeature items={media.slice(0, 6)} />
       <BookPromo />
       <CommunityPreview />

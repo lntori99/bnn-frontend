@@ -24,7 +24,7 @@ export default async function TeamPage() {
       {lucy && (
         <section className="mx-auto max-w-7xl px-4 py-16 lg:px-8" aria-label="Founder profile">
           <div className="grid items-start gap-10 lg:grid-cols-[320px_1fr]">
-            <div className="relative aspect-4/5 w-full max-w-xs overflow-hidden border-4 border-ink bg-sand shadow-[10px_10px_0_0_var(--color-forest)]">
+            <div className="relative aspect-4/5 w-full max-w-xs overflow-hidden rounded-2xl border-4 border-ink bg-sand shadow-[10px_10px_0_0_var(--color-forest)]">
               {/* Placeholder portrait until BNN supplies the real photograph. */}
               {lucy.photo ? (
                 <Image
@@ -49,7 +49,7 @@ export default async function TeamPage() {
               <p className="mt-6 max-w-3xl text-lg opacity-85">{lucy.fullBio ?? lucy.shortBio}</p>
               <div className="mt-6 flex flex-wrap gap-3">
                 {lucy.links?.map((l) => (
-                  <a key={l.url} href={l.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xs border-2 border-current px-6 py-[0.8rem] text-[0.95rem] font-bold transition duration-150 ease-out hover:-translate-y-px focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2">
+                  <a key={l.url} href={l.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border-2 border-current px-6 py-[0.8rem] text-[0.95rem] font-bold transition duration-150 ease-out hover:-translate-y-px focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2">
                     {l.label}
                   </a>
                 ))}
@@ -78,7 +78,7 @@ export default async function TeamPage() {
             Why Lucy Quist believes leadership is the multiplier on Africa's future — and
             what BNN will do about it.
           </p>
-          <span className="inline-flex items-center gap-2 rounded-xs bg-gold px-6 py-[0.8rem] text-[0.95rem] font-bold text-ink transition duration-150 ease-out hover:-translate-y-px hover:bg-gold-soft focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2 mt-6">Explore the focus</span>
+          <span className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-[0.8rem] text-[0.95rem] font-bold text-ink transition duration-150 ease-out hover:-translate-y-px hover:bg-gold-soft focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2 mt-6">Explore the focus</span>
         </Link>
       </section>
       <CTASection />

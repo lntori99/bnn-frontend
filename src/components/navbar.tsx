@@ -3,8 +3,9 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Dialog, DialogPanel, Transition, TransitionChild } from "@headlessui/react";
-import { HiBars3, HiXMark, HiArrowUpRight } from "react-icons/hi2";
+import { Dialog, DialogPanel } from "@headlessui/react";
+import { AnimatePresence, motion } from "framer-motion";
+import { HiBars3, HiXMark } from "react-icons/hi2";
 import Logo from "./logo";
 import { site } from "@/data/site";
 import { useAppDispatch, useAppSelector } from "@/core/hook";
@@ -30,131 +31,134 @@ export default function Navbar() {
   const closeMenu = () => dispatch(setMobileMenu(false));
 
   return (
-    <>
-      <header
-        className={`on-dark fixed inset-x-0 top-0 z-40 transition-all duration-500 ease-out ${
-          scrolled
-            ? "border-b border-ivory/10 bg-ink/90 backdrop-blur-md"
-            : "border-transparent bg-linear-to-b from-ink/60 via-ink/20 to-transparent"
-        }`}
-      >
-        <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:bg-gold focus:px-3 focus:py-2">
-          Skip to content
-        </a>
-        <div className="mx-auto flex h-16 max-w-7xl items-center px-4 lg:px-8">
-          <div className="flex min-w-0 flex-1">
-            <Logo onDark />
-          </div>
+    <header
+      className={`on-dark fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "border-b border-ivory/10 bg-ink/90 py-3 shadow-lg backdrop-blur-md"
+          : "border-b border-transparent bg-transparent py-5"
+      }`}
+    >
+      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:bg-gold focus:px-3 focus:py-2">
+        Skip to content
+      </a>
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 lg:px-8">
+        <Logo onDark />
 
-          <nav aria-label="Main" className="hidden flex-none items-center justify-center gap-6 xl:flex">
-            {site.nav.slice(0, 6).map((item) => {
-              const active = pathname === item.href;
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`text-sm font-medium uppercase transition-colors ${
-                    active ? "text-gold underline decoration-gold decoration-2 underline-offset-8" : "text-ivory/80 hover:text-ivory"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-          </nav>
-
-          <div className="flex min-w-0 flex-1 items-center justify-end gap-4">
-           
+        {/* Desktop nav */}
+        <nav aria-label="Main" className="hidden items-center gap-5 xl:flex">
+          {site.nav.slice(0, 6).map((item) => (
             <Link
-              href="/community"
-              className="hidden items-center gap-1.5 rounded-xs bg-gold px-5 py-2 text-xs font-bold uppercase tracking-wide text-ink transition duration-150 ease-out hover:-translate-y-px hover:bg-gold-soft focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2 xl:inline-flex"
+              key={item.href}
+              href={item.href}
+              className={`text-sm  uppercase  transition-colors hover:text-gold ${
+                pathname === item.href ? "text-gold" : "text-ivory/85"
+              }`}
             >
-              Join the Community
-              <HiArrowUpRight className="h-3.5 w-3.5" />
+              {item.label}
             </Link>
-            <button
-              type="button"
-              onClick={() => dispatch(setMobileMenu(true))}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-ivory/20 text-ivory transition-colors hover:border-gold hover:text-gold xl:hidden"
-              aria-label="Open menu"
-            >
-              <HiBars3 className="h-5 w-5" />
-            </button>
-          </div>
+          ))}
+        </nav>
+
+        <div className="hidden items-center gap-3 xl:flex">
+          <Link
+            href="/community"
+            className="rounded-full border-2 border-ivory/40 px-5 py-2.5 text-xs font-bold uppercase tracking-wide text-ivory transition-colors hover:border-gold hover:text-gold"
+          >
+            Join the Community
+          </Link>
+          <a
+            href={site.bookUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full bg-gold px-5 py-2.5 text-xs font-bold uppercase tracking-wide text-ink transition-colors hover:bg-gold-soft"
+          >
+            Buy the Book
+          </a>
         </div>
-      </header>
 
-      <Transition show={open}>
-        <Dialog onClose={closeMenu} className="relative z-50 xl:hidden">
-          <TransitionChild
-            enter="duration-300 ease-out"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="duration-200 ease-in"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
-            <div className="fixed inset-0 bg-ink/70 backdrop-blur-sm" aria-hidden="true" />
-          </TransitionChild>
+        <button
+          type="button"
+          onClick={() => dispatch(setMobileMenu(true))}
+          className="grid h-11 w-11 place-items-center rounded-full border border-ivory/20 text-ivory transition-colors hover:border-gold hover:text-gold xl:hidden"
+          aria-label="Open menu"
+        >
+          <HiBars3 className="text-xl" />
+        </button>
+      </div>
 
-          <TransitionChild
-            enter="duration-400 ease-out"
-            enterFrom="translate-x-full"
-            enterTo="translate-x-0"
-            leave="duration-300 ease-in"
-            leaveFrom="translate-x-0"
-            leaveTo="translate-x-full"
-          >
-            <DialogPanel className="on-dark fixed inset-y-0 right-0 flex w-full max-w-sm flex-col overflow-y-auto border-l border-ivory/10 bg-ink p-6 text-ivory">
-              <div className="flex items-center justify-between">
-                <Logo onDark />
-                <button
-                  aria-label="Close menu"
-                  onClick={closeMenu}
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-ivory/20 text-ivory hover:border-gold hover:text-gold"
+      {/* Mobile menu — Join Community & Buy Book are prioritised at the top */}
+      <AnimatePresence>
+        {open && (
+          <Dialog static open={open} onClose={closeMenu} className="relative z-60 xl:hidden">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-ink/70 backdrop-blur-sm"
+              aria-hidden="true"
+            />
+            <div className="fixed inset-0 flex justify-end">
+              <DialogPanel className="flex w-full max-w-sm">
+                <motion.div
+                  initial={{ x: "100%" }}
+                  animate={{ x: 0 }}
+                  exit={{ x: "100%" }}
+                  transition={{ type: "tween", duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                  className="on-dark flex h-full w-full flex-col overflow-y-auto border-l border-ivory/10 bg-ink px-7 py-6 text-ivory"
                 >
-                  <HiXMark className="h-5 w-5" />
-                </button>
-              </div>
+                  <div className="flex items-center justify-between">
+                    <Logo onDark />
+                    <button
+                      type="button"
+                      onClick={closeMenu}
+                      className="grid h-11 w-11 place-items-center rounded-full border border-ivory/20 text-ivory hover:border-gold hover:text-gold"
+                      aria-label="Close menu"
+                    >
+                      <HiXMark className="text-xl" />
+                    </button>
+                  </div>
 
-              <div className="kente-band kente-band--thin my-7" aria-hidden="true" />
+                  <div className="mt-8 grid gap-3">
+                    <Link
+                      href="/community"
+                      onClick={closeMenu}
+                      className="rounded-full bg-gold px-6 py-3 text-center text-[0.78rem] font-bold uppercase tracking-wide text-ink hover:bg-gold-soft"
+                    >
+                      Join the Community
+                    </Link>
+                    <a
+                      href={site.bookUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={closeMenu}
+                      className="rounded-full border-2 border-current px-6 py-3 text-center text-[0.78rem] font-bold uppercase tracking-wide text-ivory hover:text-gold"
+                    >
+                      Buy the Book
+                    </a>
+                  </div>
 
-              <nav aria-label="Mobile" className="flex flex-col gap-1">
-                {site.nav.map((item, i) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={closeMenu}
-                    className="flex items-center justify-between py-2 font-display text-xl uppercase text-ivory transition-colors hover:text-gold"
-                  >
-                    <span>{item.label}</span>
-                    <span className="text-xs text-gold/60">{String(i + 1).padStart(2, "0")}</span>
-                  </Link>
-                ))}
-              </nav>
+                  <div className="kente-band kente-band--thin mt-8" aria-hidden="true" />
 
-              <div className="mt-auto flex flex-col gap-3 pt-8">
-                <a
-                  href={site.bookUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={closeMenu}
-                  className="rounded-xs border-2 border-current px-6 py-3 text-center text-[0.78rem] font-bold uppercase tracking-wide text-ivory hover:text-gold"
-                >
-                  Buy the Book
-                </a>
-                <Link
-                  href="/community"
-                  onClick={closeMenu}
-                  className="rounded-xs bg-gold px-6 py-3 text-center text-[0.78rem] font-bold uppercase tracking-wide text-ink hover:bg-gold-soft"
-                >
-                  Join the Community
-                </Link>
-              </div>
-            </DialogPanel>
-          </TransitionChild>
-        </Dialog>
-      </Transition>
-    </>
+                  <nav aria-label="Mobile" className="mt-6">
+                    {site.nav.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={closeMenu}
+                        className="block py-2.5 font-display text-lg uppercase text-ivory transition-colors hover:text-gold"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </nav>
+
+                  <p className="mt-auto pt-8 text-xs text-ivory/40">{site.tagline}</p>
+                </motion.div>
+              </DialogPanel>
+            </div>
+          </Dialog>
+        )}
+      </AnimatePresence>
+    </header>
   );
 }

@@ -20,6 +20,7 @@ export interface Sector {
   key: string;
   name: string;
   scope: string;
+  image?: string;
 }
 
 export interface DonationDetails {

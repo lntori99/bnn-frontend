@@ -10,7 +10,7 @@ export default function MediaCard({ item }: { item: MediaItem }) {
 
   return (
     <article className="flex h-full flex-col border border-ink/15 bg-ivory">
-      <div className="relative aspect-video bg-ink">
+      <div className="relative aspect-video overflow-hidden rounded-2xl bg-ink">
         {playing ? (
           // Lightweight embed: iframe only loads after the person chooses to play
           <iframe

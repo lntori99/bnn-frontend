@@ -8,7 +8,7 @@ export default function EventCard({ event, past = false }: { event: EventItem; p
   return (
     <article className={`border ${past ? "border-ink/15 bg-sand" : "on-dark border-gold bg-ink text-ivory"}`}>
       {event.image && (
-        <div className="relative aspect-video w-full overflow-hidden">
+        <div className="relative aspect-video w-full overflow-hidden rounded-2xl">
           <Image
             src={event.image}
             alt=""
@@ -37,14 +37,14 @@ export default function EventCard({ event, past = false }: { event: EventItem; p
         <div className="mt-5 flex flex-wrap gap-3">
           {/* Registration switches to Watch/Listen once content is published */}
           {!past && event.registrationUrl && (
-            <a href={event.registrationUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xs bg-gold px-6 py-[0.8rem] text-[0.95rem] font-bold text-ink transition duration-150 ease-out hover:-translate-y-px hover:bg-gold-soft focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2">
+            <a href={event.registrationUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-[0.8rem] text-[0.95rem] font-bold text-ink transition duration-150 ease-out hover:-translate-y-px hover:bg-gold-soft focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2">
               Register
             </a>
           )}
           {past && event.watchUrl && (
-            <Link href={event.watchUrl} className="inline-flex items-center gap-2 rounded-xs bg-forest px-6 py-[0.8rem] text-[0.95rem] font-bold text-ivory transition duration-150 ease-out hover:-translate-y-px hover:bg-forest-deep focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2">Watch / Listen</Link>
+            <Link href={event.watchUrl} className="inline-flex items-center gap-2 rounded-full bg-forest px-6 py-[0.8rem] text-[0.95rem] font-bold text-ivory transition duration-150 ease-out hover:-translate-y-px hover:bg-forest-deep focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2">Watch / Listen</Link>
           )}
-          <Link href={`/events/${event.slug}`} className={`inline-flex items-center gap-2 rounded-xs border-2 border-current px-6 py-[0.8rem] text-[0.95rem] font-bold transition duration-150 ease-out hover:-translate-y-px focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2 ${past ? "" : "text-ivory"}`}>
+          <Link href={`/events/${event.slug}`} className={`inline-flex items-center gap-2 rounded-full border-2 border-current px-6 py-[0.8rem] text-[0.95rem] font-bold transition duration-150 ease-out hover:-translate-y-px focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2 ${past ? "" : "text-ivory"}`}>
             Details
           </Link>
         </div>

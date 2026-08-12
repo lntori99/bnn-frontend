@@ -80,7 +80,7 @@ export default function JoinForm({ sector }: { sector: string }) {
         </span>
       </label>
       <FormStatus status={status} success="" error={error} />
-      <button type="submit" disabled={status === "sending"} className="inline-flex items-center gap-2 rounded-xs bg-forest px-6 py-[0.8rem] text-[0.95rem] font-bold text-ivory transition duration-150 ease-out hover:-translate-y-px hover:bg-forest-deep focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2 w-fit disabled:opacity-60">
+      <button type="submit" disabled={status === "sending"} className="inline-flex items-center gap-2 rounded-full bg-forest px-6 py-[0.8rem] text-[0.95rem] font-bold text-ivory transition duration-150 ease-out hover:-translate-y-px hover:bg-forest-deep focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2 w-fit disabled:opacity-60">
         {status === "sending" ? "Sending…" : "Join the community"}
       </button>
     </form>

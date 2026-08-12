@@ -17,7 +17,7 @@ export default function TeamGrid({ members }: { members: TeamMember[] }) {
               onClick={() => setActive(m)}
               className="block h-full w-full border border-ink/15 bg-ivory p-6 text-left transition hover:-translate-y-1 hover:border-gold"
             >
-              <div className="relative mb-4 flex h-40 items-center justify-center overflow-hidden bg-sand font-display text-sm font-bold text-forest">
+              <div className="relative mb-4 flex h-40 items-center justify-center overflow-hidden rounded-2xl bg-sand font-display text-sm font-bold text-forest">
                 {m.photo ? (
                   <Image
                     src={m.photo}
@@ -47,7 +47,7 @@ export default function TeamGrid({ members }: { members: TeamMember[] }) {
             {active.links && (
               <div className="mt-5 flex gap-3">
                 {active.links.map((l) => (
-                  <a key={l.url} href={l.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xs bg-forest px-6 py-[0.8rem] text-[0.95rem] font-bold text-ivory transition duration-150 ease-out hover:-translate-y-px hover:bg-forest-deep focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2">
+                  <a key={l.url} href={l.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-forest px-6 py-[0.8rem] text-[0.95rem] font-bold text-ivory transition duration-150 ease-out hover:-translate-y-px hover:bg-forest-deep focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2">
                     {l.label}
                   </a>
                 ))}

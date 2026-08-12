@@ -137,7 +137,7 @@ export default function Hero1Cinematic({ events }: { events: EventItem[] }) {
         >
           <Link
             href="/community"
-            className="rounded-full bg-amber-400 px-8 py-3.5 text-sm font-bold uppercase tracking-wide text-black transition hover:bg-amber-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
+            className="rounded-full bg-[#d6ac63] px-8 py-3.5 text-sm font-medium uppercase tracking-wide text-black transition hover:bg-amber-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
           >
             Join the community
           </Link>
@@ -145,7 +145,7 @@ export default function Hero1Cinematic({ events }: { events: EventItem[] }) {
             href={site.bookUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full border border-white/40 px-8 py-3.5 text-sm font-bold uppercase tracking-wide text-white backdrop-blur transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            className="rounded-full border border-white/40 px-8 py-3.5 text-sm font-medium uppercase tracking-wide text-white backdrop-blur transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
           >
             Buy the book
           </a>

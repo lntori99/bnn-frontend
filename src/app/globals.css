@@ -83,6 +83,21 @@ label { font-weight: 600; font-size: 0.85rem; display: block; margin-bottom: 0.3
   bottom: 20px !important;
 }
 
+/* Media feature carousel — rounded-rectangular pagination bars instead of dots */
+.media-swiper .swiper-pagination-bullet {
+  width: 24px;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--color-ivory);
+  opacity: 0.3;
+  transition: opacity 200ms ease, background 200ms ease, width 200ms ease;
+}
+.media-swiper .swiper-pagination-bullet-active {
+  width: 32px;
+  background: var(--color-gold);
+  opacity: 1;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }

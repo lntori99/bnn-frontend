@@ -45,4 +45,18 @@ export const placeholderImages = {
 
   /** Kente-pattern textiles — echoes the site's kente band motif. */
   community: photo("photo-1692689383138-c2df3476072c", 1200, 800),
+
+  /** Young African professionals collaborating — stands in for the "What is BNN" intro. */
+  collaboration: photo("photo-1521737604893-d14cc237f11d", 1400),
+
+  /** A leadership/boardroom scene — stands in for the annual focus teaser. */
+  focus: photo("photo-1475721027785-f74eccf877e2", 1600),
+
+  sectors: {
+    healthcare: photo("photo-1576091160399-112ba8d25d1d", 1200),
+    realEnterprise: photo("photo-1556761175-b413da4baf72", 1200),
+    agriculture: photo("photo-1500937386664-56d1dfef3854", 1200),
+    technology: photo("photo-1461749280684-dccba630e2f6", 1200),
+    energyInfrastructure: photo("photo-1509391366360-2e959784a276", 1200),
+  },
 } as const;
