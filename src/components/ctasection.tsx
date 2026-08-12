@@ -1,28 +1,83 @@
+"use client";
+
 import Link from "next/link";
+import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 import { site } from "@/data/site";
+import { placeholderImages } from "@/data/placeholder-images";
+
+const slides = [
+  {
+    image: placeholderImages.community,
+    title: "Join the Community",
+    description: "Pick a sector. Build with peers across the continent.",
+    href: "/community",
+    cta: "Choose your sector",
+  },
+  {
+    image: placeholderImages.focus,
+    title: "Partner With Us",
+    description: "Fund, sponsor or collaborate on the movement's work.",
+    href: "/partner",
+    cta: "Start a conversation",
+  },
+  {
+    image: placeholderImages.collaboration,
+    title: "Join the Team",
+    description: "Bring your skills to Bold New Normal itself.",
+    href: "/join-team",
+    cta: "Express interest",
+  },
+];
 
 export default function CTASection() {
   return (
     <section className="on-dark bg-forest-deep text-ivory">
-      <div className="kente-band" aria-hidden="true" />
-      <div className="mx-auto grid max-w-7xl gap-8 px-4 py-16 md:grid-cols-3 lg:px-8">
-        {[
-          { t: "Join the Community", d: "Pick a sector. Build with peers across the continent.", href: "/community", cta: "Choose your sector" },
-          { t: "Partner With Us", d: "Fund, sponsor or collaborate on the movement's work.", href: "/partner", cta: "Start a conversation" },
-          { t: "Join the Team", d: "Bring your skills to Bold New Normal itself.", href: "/join-team", cta: "Express interest" },
-        ].map((c) => (
-          <div key={c.t} className="border border-ivory/15 p-6">
-            <h3 className="font-display text-xl font-bold">{c.t}</h3>
-            <p className="mt-2 text-sm text-ivory/75">{c.d}</p>
-            <Link href={c.href} className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-[0.8rem] text-[0.95rem] font-bold text-ink transition duration-150 ease-out hover:-translate-y-px hover:bg-gold-soft focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2 mt-5">{c.cta}</Link>
-          </div>
+   
+
+      <Swiper
+        modules={[Autoplay, Pagination]}
+        autoplay={{ delay: 6000, disableOnInteraction: false }}
+        pagination={{ clickable: true }}
+        loop
+        className="cta-swiper"
+      >
+        {slides.map((s, i) => (
+          <SwiperSlide key={s.title}>
+            <div className="relative flex min-h-110 items-center overflow-hidden py-16">
+              <Image
+                src={s.image}
+                alt=""
+                aria-hidden="true"
+                fill
+                sizes="100vw"
+                priority={i === 0}
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-ink/60" />
+              <div className="relative mx-auto w-full max-w-7xl px-4 lg:px-8">
+                <div className="mx-auto max-w-xl text-center">
+                  <p className=" text-3xl font-medium tracking-tight sm:text-4xl">{s.title}</p>
+                  <p className="mt-4 text-base text-ivory/80">{s.description}</p>
+                  <div className="mt-8">
+                    <Link
+                      href={s.href}
+                      className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-[0.8rem] text-[0.95rem] font-bold text-ink transition duration-150 ease-out hover:-translate-y-px hover:bg-gold-soft focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2"
+                    >
+                      {s.cta}
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
         ))}
-      </div>
-      <div className="pb-14 text-center">
-        <a href={site.bookUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border-2 border-current px-6 py-[0.8rem] text-[0.95rem] font-bold transition duration-150 ease-out hover:-translate-y-px focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2 text-ivory">
-          Buy the Book
-        </a>
-      </div>
+      </Swiper>
+
+
     </section>
   );
 }

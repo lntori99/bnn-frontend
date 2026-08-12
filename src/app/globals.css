@@ -34,7 +34,7 @@ h1, h2, h3, .font-display {
 
 /* Signature: kente band — woven stripe motif used as dividers & underlines */
 .kente-band {
-  height: 10px;
+  height: 5px;
   background: repeating-linear-gradient(
     90deg,
     var(--color-gold) 0 48px,
@@ -96,6 +96,24 @@ label { font-weight: 600; font-size: 0.85rem; display: block; margin-bottom: 0.3
   width: 32px;
   background: var(--color-gold);
   opacity: 1;
+}
+
+/* CTA carousel — rounded-rectangular pagination bars over the full-bleed slides */
+.cta-swiper .swiper-pagination-bullet {
+  width: 24px;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--color-ivory);
+  opacity: 0.5;
+  transition: opacity 200ms ease, background 200ms ease, width 200ms ease;
+}
+.cta-swiper .swiper-pagination-bullet-active {
+  width: 32px;
+  background: var(--color-gold);
+  opacity: 1;
+}
+.cta-swiper .swiper-pagination {
+  bottom: 16px !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
