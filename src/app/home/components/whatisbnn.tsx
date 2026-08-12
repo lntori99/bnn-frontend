@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { HiArrowRight } from "react-icons/hi2";
 import Reveal from "@/components/reveal";
-import { placeholderImages } from "@/data/placeholder-images";
 
 export default function WhatIsBNN() {
   return (
@@ -34,11 +33,11 @@ export default function WhatIsBNN() {
         <Reveal delay={0.12} className="relative">
           <div className="relative aspect-4/3 overflow-hidden rounded-2xl">
             <Image
-              src={placeholderImages.collaboration}
-              alt="A team of young African professionals collaborating around a table"
+              src="/images/img_lucy.jpg"
+              alt="Lucy Quist, founder of Bold New Normal"
               fill
               sizes="(min-width: 1024px) 45vw, 100vw"
-              className="object-cover"
+              className="object-cover object-top"
             />
           </div>
           <div className="absolute -bottom-6 -left-6 hidden max-w-60 bg-ink p-6 shadow-[8px_8px_0_0_var(--color-gold)] sm:block">
