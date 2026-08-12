@@ -1,19 +1,15 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import MainLayout from "@/shared/mainlayout";
 import Providers from "@/core/providers";
 import { placeholderImages } from "@/data/placeholder-images";
 
-const satoshi = localFont({
-  src: [
-    { path: "../../public/fonts/satoshi/Satoshi-Light.woff2", weight: "300", style: "normal" },
-    { path: "../../public/fonts/satoshi/Satoshi-Regular.woff2", weight: "400", style: "normal" },
-    { path: "../../public/fonts/satoshi/Satoshi-Medium.woff2", weight: "500", style: "normal" },
-    { path: "../../public/fonts/satoshi/Satoshi-Bold.woff2", weight: "700", style: "normal" },
-    { path: "../../public/fonts/satoshi/Satoshi-Black.woff2", weight: "900", style: "normal" },
-  ],
-  variable: "--font-satoshi",
+// Headings use Times New Roman, a system serif — no webfont to load.
+// See --font-display in globals.css for the stack.
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -34,7 +30,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={satoshi.variable}>
+    <html lang="en" className={inter.variable}>
       <body>
         <Providers>
           <MainLayout>{children}</MainLayout>

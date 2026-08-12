@@ -3,7 +3,8 @@ export const site = {
   shortName: "BNN",
   founder: "Lucy Quist",
   tagline: "Africa's transformation, driven by Africans.",
-  bookUrl: "https://example.com/buy-the-bold-new-normal", // CMS-managed in production
+  // Canonical Amazon product URL (ASIN 9988294492). CMS-managed in production.
+  bookUrl: "https://www.amazon.com/dp/9988294492",
   email: "hello@boldnewnormal.org",
   social: [
     { label: "LinkedIn", url: "https://www.linkedin.com/company/boldnewnormal" },

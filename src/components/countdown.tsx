@@ -46,7 +46,8 @@ export default function Countdown({ target, className = "" }: { target: string; 
     <div className={`flex gap-3 ${className}`} role="timer" aria-label="Time until event starts">
       {cells.map((c) => (
         <div key={c.l} className="min-w-16 border border-gold/40 bg-ink px-2 py-2 text-center">
-          <span className="block font-mono text-2xl font-bold tabular-nums text-gold">
+          {/* tabular-nums keeps Inter's digits fixed-width so the timer doesn't jitter */}
+          <span className="block text-2xl font-bold tabular-nums text-gold">
             {String(c.v).padStart(2, "0")}
           </span>
           <span className="text-[10px] font-semibold uppercase tracking-widest text-ivory/70">{c.l}</span>

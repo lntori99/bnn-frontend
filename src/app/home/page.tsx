@@ -1,5 +1,4 @@
 import Hero from "./components/hero";
-import FeaturedEvent from "./components/featuredevent";
 import WhatIsBNN from "./components/whatisbnn";
 import FocusTeaser from "./components/focusteaser";
 import MediaFeature from "./components/mediafeature";
@@ -7,21 +6,25 @@ import BookPromo from "./components/bookpromo";
 import CommunityPreview from "./components/communitypreview";
 import Roadmap from "./components/roadmap";
 import CTASection from "@/components/ctasection";
-import { getFeaturedEvent } from "@/services/events";
+import { getEvents } from "@/services/events";
 import { getMedia } from "@/services/media";
 import { getRoadmap } from "@/services/content";
 
 export default async function Home() {
-  const [event, media, roadmap] = await Promise.all([
-    getFeaturedEvent(),
+  const [events, media, roadmap] = await Promise.all([
+    getEvents(),
     getMedia(),
     getRoadmap(),
   ]);
 
+  // Upcoming first, soonest first — the featured event leads the hero ticker.
+  const tickerEvents = [...events]
+    .filter((e) => e.status === "upcoming")
+    .sort((a, b) => Number(b.featured ?? false) - Number(a.featured ?? false));
+
   return (
     <>
-      <Hero />
-      {event && <FeaturedEvent event={event} />}
+      <Hero events={tickerEvents} />
       <WhatIsBNN />
       <FocusTeaser />
       <MediaFeature items={media.slice(0, 6)} />

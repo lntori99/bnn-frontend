@@ -12,8 +12,10 @@
   --color-ivory: #faf6ec;
   --color-sand: #efe7d4;
 
-  --font-display: var(--font-satoshi), sans-serif;
-  --font-body: var(--font-satoshi), sans-serif;
+  /* Times New Roman ships on macOS/Windows; the next two are the metric-compatible
+     substitutes on Linux/Android, so the serif holds up everywhere. */
+  --font-display: "Times New Roman", Times, "Liberation Serif", "Nimbus Roman", serif;
+  --font-body: var(--font-inter), sans-serif;
 }
 
 html { scroll-behavior: smooth; scroll-padding-top: 4rem; }
@@ -46,11 +48,10 @@ h1, h2, h3, .font-display {
 .kente-band--thin { height: 5px; }
 
 .eyebrow {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.75rem;
   font-weight: 700;
-  /* Mono is already wide — less tracking than the proportional face needed. */
-  letter-spacing: 0.16em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-forest);
 }
