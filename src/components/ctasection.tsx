@@ -6,25 +6,24 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import { site } from "@/data/site";
-import { placeholderImages } from "@/data/placeholder-images";
 
 const slides = [
   {
-    image: placeholderImages.community,
+    image: "/images/img_cta_lucy-quist.jpg",
     title: "Join the Community",
     description: "Pick a sector. Build with peers across the continent.",
     href: "/community",
     cta: "Choose your sector",
   },
   {
-    image: placeholderImages.focus,
+    image: "/images/img_cta_lucy-quist-2.jpg",
     title: "Partner With Us",
     description: "Fund, sponsor or collaborate on the movement's work.",
     href: "/partner",
     cta: "Start a conversation",
   },
   {
-    image: placeholderImages.collaboration,
+    image: "/images/img_cta_lucy-quist-3.jpg",
     title: "Join the Team",
     description: "Bring your skills to Bold New Normal itself.",
     href: "/join-team",
