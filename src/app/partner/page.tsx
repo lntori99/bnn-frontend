@@ -10,8 +10,8 @@ import {
 
 import Reveal from "@/components/reveal";
 
-import PartnerForm from "@/app/partner/components/partnerForm";
-import DonationDetails from "@/app/partner/components/donationDetails";
+import PartnerForm from "@/app/partner/components/partnerform";
+import DonationDetails from "@/app/partner/components/donationdetails";
 import PageHeader from "@/components/pageheader";
 import SectionHeading from "@/components/sectionheading";
 

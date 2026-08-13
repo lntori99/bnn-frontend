@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import {
+  FiArrowRight,
+  FiCalendar,
+  FiCheck,
+  FiTarget,
+  FiZap,
+} from "react-icons/fi";
 import PageHeader from "@/components/pageheader";
 import CTASection from "@/components/ctasection";
 import Reveal from "@/components/reveal";
+import AnimatedIcon from "@/components/animatedicon";
 import { getFocusPage, getFocusPages } from "@/services/content";
 import { placeholderImages } from "@/data/placeholder-images";
 
@@ -37,8 +45,11 @@ export default async function FocusPage({ params }: Props) {
       />
       <section className="mx-auto max-w-7xl px-4 py-20 sm:py-28 lg:px-8">
         <Reveal>
-          <div className="max-w-3xl">
-            <p className="eyebrow">Why it matters</p>
+          <div className="group max-w-3xl">
+            <AnimatedIcon>
+              <FiZap />
+            </AnimatedIcon>
+            <p className="eyebrow mt-5">Why it matters</p>
             <p className="mt-4 text-xl leading-relaxed text-ink/70">
               {page.whyItMatters}
             </p>
@@ -46,17 +57,21 @@ export default async function FocusPage({ params }: Props) {
         </Reveal>
         <div className="mt-14 grid gap-6 lg:grid-cols-2">
           <Reveal>
-            <div className="h-full rounded-2xl border border-ink/10 bg-sand p-7">
-              <p className="text-xl font-medium tracking-tight">
-                Desired outcomes
-              </p>
-              <ul className="mt-4 space-y-3">
-                {page.outcomes.map((o) => (
-                  <li key={o} className="flex gap-3">
-                    <span
-                      className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#d6ac63]"
-                      aria-hidden="true"
-                    />
+            <div className="group h-full rounded-2xl border border-ink/10 bg-sand p-7 transition-shadow duration-300 hover:shadow-lg">
+              <div className="flex items-center gap-3">
+                <AnimatedIcon tone="gold">
+                  <FiTarget />
+                </AnimatedIcon>
+                <p className="text-xl font-medium tracking-tight">
+                  Desired outcomes
+                </p>
+              </div>
+              <ul className="mt-5 space-y-3">
+                {page.outcomes.map((o, i) => (
+                  <li key={o} className="flex items-start gap-3">
+                    <AnimatedIcon tone="gold" size="sm" delay={0.1 + i * 0.06}>
+                      <FiCheck aria-hidden="true" />
+                    </AnimatedIcon>
                     <span className="text-ink/80">{o}</span>
                   </li>
                 ))}
@@ -64,17 +79,21 @@ export default async function FocusPage({ params }: Props) {
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="h-full rounded-2xl border border-ink/10 bg-sand p-7">
-              <p className="text-xl font-medium tracking-tight">
-                Planned activities
-              </p>
-              <ul className="mt-4 space-y-3">
-                {page.activities.map((a) => (
-                  <li key={a} className="flex gap-3">
-                    <span
-                      className="mt-2 h-2 w-2 shrink-0 rounded-full bg-forest"
-                      aria-hidden="true"
-                    />
+            <div className="group h-full rounded-2xl border border-ink/10 bg-sand p-7 transition-shadow duration-300 hover:shadow-lg">
+              <div className="flex items-center gap-3">
+                <AnimatedIcon delay={0.1}>
+                  <FiCalendar />
+                </AnimatedIcon>
+                <p className="text-xl font-medium tracking-tight">
+                  Planned activities
+                </p>
+              </div>
+              <ul className="mt-5 space-y-3">
+                {page.activities.map((a, i) => (
+                  <li key={a} className="flex items-start gap-3">
+                    <AnimatedIcon size="sm" delay={0.2 + i * 0.06}>
+                      <FiArrowRight aria-hidden="true" />
+                    </AnimatedIcon>
                     <span className="text-ink/80">{a}</span>
                   </li>
                 ))}

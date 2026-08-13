@@ -27,8 +27,8 @@ export default function FormShell({
 }) {
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-brand/25 bg-brand/5 p-10 text-center">
-        <FiCheckCircle className="mx-auto text-4xl text-brand" aria-hidden />
+      <div className="rounded-2xl border border-forest/25 bg-forest/5 p-10 text-center">
+        <FiCheckCircle className="mx-auto text-4xl text-forest" aria-hidden />
         <h3 className="mt-4 font-display text-2xl text-ink">{successTitle}</h3>
         <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-ink/70">{message}</p>
       </div>
@@ -76,7 +76,14 @@ export default function FormShell({
       )}
 
       <div>
-        <button type="submit" disabled={status === "submitting"} className="btn-brand disabled:opacity-60">
+        {/* Every form's submit renders here, so all three CTAs — Express interest,
+            Send partnership enquiry, Join the Community — stay identical.
+            Styled to match the hero's primary CTA. */}
+        <button
+          type="submit"
+          disabled={status === "submitting"}
+          className="inline-flex items-center justify-center rounded-full bg-[#d6ac63] px-8 py-3.5 text-sm font-medium uppercase tracking-wide text-black transition hover:bg-amber-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 disabled:cursor-not-allowed disabled:opacity-60"
+        >
           {status === "submitting" ? "Sending…" : submitLabel}
         </button>
       </div>

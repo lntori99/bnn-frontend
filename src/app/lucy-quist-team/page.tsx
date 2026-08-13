@@ -51,7 +51,10 @@ export default async function TeamPage() {
               )}
             </div>
             <div>
-              <p className="eyebrow">Founder</p>
+              <span className="inline-flex mb-2 items-center gap-2 rounded-full border border-[#d6ac63]/50 bg-white/5 px-4 py-1.5 text-xs font-light uppercase tracking-wide text-[#d6ac63] backdrop-blur-md">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#d6ac63] shadow-[0_0_8px_#d6ac63]" />
+                Founder
+              </span>
               <p className="mt-2 text-3xl font-medium tracking-tight sm:text-4xl">
                 {lucy.name}
               </p>
@@ -66,7 +69,7 @@ export default async function TeamPage() {
                     href={l.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border-2 border-current px-6 py-[0.8rem] text-[0.95rem] font-bold transition duration-150 ease-out hover:-translate-y-px focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2"
+                    className="inline-flex items-center gap-2 rounded-full border-2 border-current px-4 py-2 text-sm font-medium transition duration-150 ease-out hover:-translate-y-px focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2"
                   >
                     {l.label}
                   </a>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 
-import MediaLibrary from "@/app/media/components/mediaLibrary";
+import MediaLibrary from "@/app/media/components/medialibrary";
 import PageHeader from "@/components/pageheader";
 import CTASection from "@/components/ctasection";
 
