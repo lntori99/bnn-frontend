@@ -19,8 +19,6 @@ function photo(id: string, w: number, h?: number) {
 export const placeholderImages = {
   /** Black Star Square / Independence Arch, Accra — "Freedom and Justice, AD 1957". */
   hero: photo("photo-1630386226447-af0a955c1009", 2000, 1100),
-  /** Social share card. */
-  ogCover: photo("photo-1630386226447-af0a955c1009", 1200, 630),
 
   events: {
     /** Two women at an African conference. */
