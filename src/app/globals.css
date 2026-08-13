@@ -22,7 +22,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 4rem; }
 
 body {
   font-family: var(--font-body);
-  background: var(--color-ivory);
+  background: #fff;
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
 }

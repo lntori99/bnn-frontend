@@ -88,7 +88,7 @@ export const fallbackTeam: TeamMember[] = [
     id: 1,
     name: "Lucy Quist",
     title: "Founder, Bold New Normal",
-    photo: placeholderImages.team.founder,
+    photo: "/images/img_lucy_3.jpg",
     isFounder: true,
     shortBio:
       "Engineer, business leader and author of The Bold New Normal. Lucy has led at the intersection of technology, telecoms and finance across Africa and Europe.",

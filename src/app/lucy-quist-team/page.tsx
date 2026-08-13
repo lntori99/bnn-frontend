@@ -46,7 +46,7 @@ export default async function TeamPage() {
               <p className="eyebrow">Founder</p>
               <p className="mt-2 text-3xl font-medium tracking-tight sm:text-4xl">{lucy.name}</p>
               <p className="mt-1 font-semibold text-forest">{lucy.title}</p>
-              <p className="mt-6 max-w-3xl text-base leading-relaxed text-ink/70 sm:text-lg">
+              <p className="mt-6 max-w-3xl text-sm leading-relaxed text-ink/70 sm:text-base">
                 {lucy.fullBio ?? lucy.shortBio}
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
