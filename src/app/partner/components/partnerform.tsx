@@ -1,92 +1,93 @@
 "use client";
 
 import { useState } from "react";
-import FormStatus from "@/components/formstatus";
-import { submitPartnerEnquiry } from "@/services/forms";
-import { errorMessage } from "@/lib/api-error";
-import { PARTNERSHIP_TYPES } from "@/core/app-constants";
+import FormShell from "@/components/formShell";
+import { submitForm, type FormStatus } from "@/core/forms";
+
+const partnershipTypes = [
+  "Corporate / strategic partnership",
+  "Sponsorship",
+  "Programme support",
+  "Institutional collaboration",
+  "Philanthropy / donation",
+  "In-kind support",
+];
 
 export default function PartnerForm() {
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
-  const [error, setError] = useState<string>();
+  const [fields, setFields] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    organisation: "",
+    country: "",
+    partnershipType: partnershipTypes[0],
+    support: "",
+    message: "",
+  });
+  const [consent, setConsent] = useState(false);
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const [message, setMessage] = useState("");
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setStatus("sending");
-    const f = new FormData(e.currentTarget);
-    try {
-      await submitPartnerEnquiry({
-        name: String(f.get("name")),
-        email: String(f.get("email")),
-        phone: String(f.get("phone") ?? ""),
-        organisation: String(f.get("organisation")),
-        country: String(f.get("country")),
-        partnershipType: String(f.get("partnershipType")),
-        proposal: String(f.get("proposal")),
-        message: String(f.get("message") ?? ""),
-        consent: f.get("consent") === "on",
-      });
-      setStatus("success");
-    } catch (err) {
-      setError(errorMessage(err));
-      setStatus("error");
-    }
-  }
+  const set =
+    (k: keyof typeof fields) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
+      setFields((f) => ({ ...f, [k]: e.target.value }));
 
-  if (status === "success") {
-    return (
-      <div className="mt-6">
-        <FormStatus status="success" success="Enquiry received. The partnerships team will reply to the email address you provided." />
-      </div>
-    );
-  }
+  const handleSubmit = async () => {
+    setStatus("submitting");
+    const res = await submitForm("partner", { ...fields, consent });
+    setStatus(res.ok ? "success" : "error");
+    setMessage(res.message);
+  };
 
   return (
-    <form onSubmit={handleSubmit} className="mt-6 grid gap-5">
+    <FormShell
+      status={status}
+      message={message}
+      consent={consent}
+      onConsentChange={setConsent}
+      submitLabel="Send partnership enquiry"
+      onSubmit={handleSubmit}
+      successTitle="Thank you — let's build together"
+    >
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="p-name">Full name</label>
-          <input id="p-name" name="name" className="field" required autoComplete="name" />
+          <label htmlFor="p-name" className="field-label">Full name</label>
+          <input id="p-name" className="field" value={fields.name} onChange={set("name")} required autoComplete="name" />
         </div>
         <div>
-          <label htmlFor="p-email">Email</label>
-          <input id="p-email" name="email" type="email" className="field" required autoComplete="email" />
+          <label htmlFor="p-email" className="field-label">Email</label>
+          <input id="p-email" type="email" className="field" value={fields.email} onChange={set("email")} required autoComplete="email" />
         </div>
         <div>
-          <label htmlFor="p-phone">Phone (optional)</label>
-          <input id="p-phone" name="phone" type="tel" className="field" autoComplete="tel" />
+          <label htmlFor="p-phone" className="field-label">Phone (optional)</label>
+          <input id="p-phone" type="tel" className="field" value={fields.phone} onChange={set("phone")} autoComplete="tel" />
         </div>
         <div>
-          <label htmlFor="p-org">Organisation</label>
-          <input id="p-org" name="organisation" className="field" required autoComplete="organization" />
+          <label htmlFor="p-org" className="field-label">Organisation</label>
+          <input id="p-org" className="field" value={fields.organisation} onChange={set("organisation")} required autoComplete="organization" />
         </div>
         <div>
-          <label htmlFor="p-country">Country</label>
-          <input id="p-country" name="country" className="field" required autoComplete="country-name" />
+          <label htmlFor="p-country" className="field-label">Country</label>
+          <input id="p-country" className="field" value={fields.country} onChange={set("country")} required />
         </div>
         <div>
-          <label htmlFor="p-type">Partnership type</label>
-          <select id="p-type" name="partnershipType" className="field" required>
-            {PARTNERSHIP_TYPES.map((t) => <option key={t}>{t}</option>)}
+          <label htmlFor="p-type" className="field-label">Partnership type</label>
+          <select id="p-type" className="field" value={fields.partnershipType} onChange={set("partnershipType")}>
+            {partnershipTypes.map((t) => (
+              <option key={t}>{t}</option>
+            ))}
           </select>
         </div>
       </div>
       <div>
-        <label htmlFor="p-proposal">Proposed support / collaboration</label>
-        <textarea id="p-proposal" name="proposal" className="field" rows={3} required />
+        <label htmlFor="p-support" className="field-label">Proposed support / collaboration</label>
+        <input id="p-support" className="field" placeholder="e.g. sponsor the 2026 conference, fund a sector programme" value={fields.support} onChange={set("support")} />
       </div>
       <div>
-        <label htmlFor="p-message">Message (optional)</label>
-        <textarea id="p-message" name="message" className="field" rows={3} />
+        <label htmlFor="p-message" className="field-label">Message</label>
+        <textarea id="p-message" rows={5} className="field" value={fields.message} onChange={set("message")} required />
       </div>
-      <label className="flex items-start gap-3 text-sm font-normal">
-        <input type="checkbox" name="consent" required className="mt-1 h-4 w-4 accent-forest" />
-        <span>I consent to BNN storing this information to respond to my enquiry.</span>
-      </label>
-      <FormStatus status={status} success="" error={error} />
-      <button type="submit" disabled={status === "sending"} className="inline-flex items-center gap-2 rounded-full bg-forest px-6 py-[0.8rem] text-[0.95rem] font-bold text-ivory transition duration-150 ease-out hover:-translate-y-px hover:bg-forest-deep focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2 w-fit disabled:opacity-60">
-        {status === "sending" ? "Sending…" : "Send enquiry"}
-      </button>
-    </form>
+    </FormShell>
   );
 }

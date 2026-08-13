@@ -41,7 +41,7 @@ export default function WhatIsBNN() {
             />
           </div>
           <div className="absolute -bottom-6 -left-6 hidden max-w-60 bg-ink p-6 shadow-[8px_8px_0_0_var(--color-gold)] sm:block">
-            <p className="font-display text-4xl text-gold">5</p>
+            <p className="font-display text-4xl text-[#d6ac63]">5</p>
             <p className="mt-1 text-sm text-ivory/70">
               sector communities building across the continent
             </p>

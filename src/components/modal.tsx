@@ -17,11 +17,15 @@ export default function Modal({ open, onClose, title, children }: Props) {
       <div className="fixed inset-0 flex items-center justify-center p-4">
         <DialogPanel className="max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-ivory p-6 sm:p-8">
           <div className="flex items-start justify-between gap-4">
-            {title && <DialogTitle className="text-2xl font-medium tracking-tight">{title}</DialogTitle>}
+            {title && (
+              <DialogTitle className="text-2xl font-medium tracking-tight">
+                {title}
+              </DialogTitle>
+            )}
             <button
               aria-label="Close dialog"
               onClick={onClose}
-              className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-ink/15 transition-colors hover:border-gold hover:text-gold"
+              className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-ink/15 transition-colors hover:border-gold hover:text-[#d6ac63]"
             >
               <HiXMark className="h-5 w-5" />
             </button>

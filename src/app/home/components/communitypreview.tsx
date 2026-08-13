@@ -43,10 +43,8 @@ export default function CommunityPreview() {
                 )}
                 <div className="absolute inset-0 bg-linear-to-t from-ink via-ink/20 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-5">
-                  <p className=" text-lg leading-snug text-ivory">
-                    {s.name}
-                  </p>
-                  <span className="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-gold opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <p className=" text-lg leading-snug text-ivory">{s.name}</p>
+                  <span className="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-[#d6ac63] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     Join this sector <HiArrowUpRight />
                   </span>
                 </div>

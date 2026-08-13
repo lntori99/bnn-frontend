@@ -15,7 +15,7 @@ export default function Pagination({ page, pageCount, onChange }: Props) {
           key={p}
           onClick={() => onChange(p)}
           aria-current={p === page ? "page" : undefined}
-          className={`h-10 w-10 rounded-full text-sm font-bold transition-colors ${p === page ? "bg-forest text-ivory" : "bg-sand hover:bg-gold"}`}
+          className={`h-10 w-10 rounded-full text-sm font-bold transition-colors ${p === page ? "bg-forest text-ivory" : "bg-sand hover:bg-[#d6ac63]"}`}
         >
           {p}
         </button>

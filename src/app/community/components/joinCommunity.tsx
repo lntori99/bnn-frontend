@@ -11,7 +11,8 @@ import { sectors } from "@/data/sectors";
 
 export default function JoinCommunity() {
   const params = useSearchParams();
-  const preselected = sectors.find((s) => s.key === params.get("sector"))?.key ?? "";
+  const preselected =
+    sectors.find((s) => s.key === params.get("sector"))?.key ?? "";
 
   const [sector, setSector] = useState(preselected);
   const [fields, setFields] = useState({
@@ -26,8 +27,10 @@ export default function JoinCommunity() {
   const [status, setStatus] = useState<FormStatus>("idle");
   const [message, setMessage] = useState("");
 
-  const set = (k: keyof typeof fields) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-    setFields((f) => ({ ...f, [k]: e.target.value }));
+  const set =
+    (k: keyof typeof fields) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+      setFields((f) => ({ ...f, [k]: e.target.value }));
 
   const handleSubmit = async () => {
     if (!sector) {
@@ -59,7 +62,9 @@ export default function JoinCommunity() {
                   onClick={() => setSector(s.key)}
                   aria-pressed={selected}
                   className={`group relative block w-full overflow-hidden rounded-2xl border-2 text-left transition-all duration-300 ${
-                    selected ? "border-gold shadow-[0_10px_40px_rgba(214,172,99,0.25)]" : "border-transparent"
+                    selected
+                      ? "border-gold shadow-[0_10px_40px_rgba(214,172,99,0.25)]"
+                      : "border-transparent"
                   }`}
                 >
                   <div className="relative aspect-[16/9]">
@@ -74,14 +79,18 @@ export default function JoinCommunity() {
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent" />
                     {selected && (
-                      <span className="absolute right-3 top-3 grid h-8 w-8 place-items-center rounded-full bg-gold text-ink">
+                      <span className="absolute right-3 top-3 grid h-8 w-8 place-items-center rounded-full bg-[#d6ac63] text-ink">
                         <FiCheck />
                       </span>
                     )}
                   </div>
                   <div className="absolute inset-x-0 bottom-0 p-5">
-                    <h3 className="font-display text-lg text-white">{s.name}</h3>
-                    <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-white/65">{s.scope}</p>
+                    <h3 className="font-display text-lg text-white">
+                      {s.name}
+                    </h3>
+                    <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-white/65">
+                      {s.scope}
+                    </p>
                   </div>
                 </button>
               </Reveal>
@@ -112,28 +121,81 @@ export default function JoinCommunity() {
               successTitle="Welcome to the movement"
             >
               <div>
-                <label htmlFor="c-name" className="field-label">Full name</label>
-                <input id="c-name" className="field" value={fields.name} onChange={set("name")} required autoComplete="name" />
+                <label htmlFor="c-name" className="field-label">
+                  Full name
+                </label>
+                <input
+                  id="c-name"
+                  className="field"
+                  value={fields.name}
+                  onChange={set("name")}
+                  required
+                  autoComplete="name"
+                />
               </div>
               <div>
-                <label htmlFor="c-email" className="field-label">Email</label>
-                <input id="c-email" type="email" className="field" value={fields.email} onChange={set("email")} required autoComplete="email" />
+                <label htmlFor="c-email" className="field-label">
+                  Email
+                </label>
+                <input
+                  id="c-email"
+                  type="email"
+                  className="field"
+                  value={fields.email}
+                  onChange={set("email")}
+                  required
+                  autoComplete="email"
+                />
               </div>
               <div>
-                <label htmlFor="c-country" className="field-label">Country / location</label>
-                <input id="c-country" className="field" value={fields.country} onChange={set("country")} required />
+                <label htmlFor="c-country" className="field-label">
+                  Country / location
+                </label>
+                <input
+                  id="c-country"
+                  className="field"
+                  value={fields.country}
+                  onChange={set("country")}
+                  required
+                />
               </div>
               <div>
-                <label htmlFor="c-occupation" className="field-label">Occupation / organisation</label>
-                <input id="c-occupation" className="field" value={fields.occupation} onChange={set("occupation")} required />
+                <label htmlFor="c-occupation" className="field-label">
+                  Occupation / organisation
+                </label>
+                <input
+                  id="c-occupation"
+                  className="field"
+                  value={fields.occupation}
+                  onChange={set("occupation")}
+                  required
+                />
               </div>
               <div>
-                <label htmlFor="c-interests" className="field-label">Areas of interest</label>
-                <input id="c-interests" className="field" placeholder="e.g. healthtech, distribution, policy" value={fields.interests} onChange={set("interests")} required />
+                <label htmlFor="c-interests" className="field-label">
+                  Areas of interest
+                </label>
+                <input
+                  id="c-interests"
+                  className="field"
+                  placeholder="e.g. healthtech, distribution, policy"
+                  value={fields.interests}
+                  onChange={set("interests")}
+                  required
+                />
               </div>
               <div>
-                <label htmlFor="c-contribution" className="field-label">How would you like to contribute?</label>
-                <textarea id="c-contribution" rows={4} className="field" value={fields.contribution} onChange={set("contribution")} required />
+                <label htmlFor="c-contribution" className="field-label">
+                  How would you like to contribute?
+                </label>
+                <textarea
+                  id="c-contribution"
+                  rows={4}
+                  className="field"
+                  value={fields.contribution}
+                  onChange={set("contribution")}
+                  required
+                />
               </div>
             </FormShell>
           </div>

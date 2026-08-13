@@ -29,3 +29,13 @@ export const site = {
     { label: "Join the Team", href: "/join-team" },
   ],
 };
+
+export const donationDetails = {
+  verified: true, // demo flag — driven by the CMS in production
+  accountName: "Bold New Normal Foundation",
+  bankName: "Sample Bank Ghana Ltd (placeholder)",
+  accountNumber: "0000 0000 0000 (placeholder)",
+  swift: "SAMPGHAC (placeholder)",
+  currency: "USD / GHS",
+  note: "Official account details are published here only after they have been verified and approved by BNN.",
+};

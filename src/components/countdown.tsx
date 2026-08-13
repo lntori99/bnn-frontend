@@ -13,8 +13,16 @@ function diff(target: string) {
   };
 }
 
-export default function Countdown({ target, className = "" }: { target: string; className?: string }) {
-  const [left, setLeft] = useState<ReturnType<typeof diff> | undefined>(undefined);
+export default function Countdown({
+  target,
+  className = "",
+}: {
+  target: string;
+  className?: string;
+}) {
+  const [left, setLeft] = useState<ReturnType<typeof diff> | undefined>(
+    undefined,
+  );
 
   useEffect(() => {
     setLeft(diff(target));
@@ -23,13 +31,20 @@ export default function Countdown({ target, className = "" }: { target: string; 
   }, [target]);
 
   if (left === undefined) {
-    return <p className={`text-sm ${className}`} aria-hidden="true">&nbsp;</p>;
+    return (
+      <p className={`text-sm ${className}`} aria-hidden="true">
+        &nbsp;
+      </p>
+    );
   }
 
   // Countdown expires automatically after event start
   if (left === null) {
     return (
-      <p className={`text-lg font-medium tracking-tight text-gold ${className}`} role="status">
+      <p
+        className={`text-lg font-medium tracking-tight text-[#d6ac63] ${className}`}
+        role="status"
+      >
         Happening now
       </p>
     );
@@ -43,14 +58,23 @@ export default function Countdown({ target, className = "" }: { target: string; 
   ];
 
   return (
-    <div className={`flex gap-3 ${className}`} role="timer" aria-label="Time until event starts">
+    <div
+      className={`flex gap-3 ${className}`}
+      role="timer"
+      aria-label="Time until event starts"
+    >
       {cells.map((c) => (
-        <div key={c.l} className="min-w-16 rounded-2xl border border-gold/40 bg-ink px-2 py-2 text-center">
+        <div
+          key={c.l}
+          className="min-w-16 rounded-2xl border border-gold/40 bg-ink px-2 py-2 text-center"
+        >
           {/* tabular-nums keeps Inter's digits fixed-width so the timer doesn't jitter */}
-          <span className="block text-2xl font-bold tabular-nums text-gold">
+          <span className="block text-2xl font-bold tabular-nums text-[#d6ac63]">
             {String(c.v).padStart(2, "0")}
           </span>
-          <span className="text-[10px] font-semibold uppercase tracking-widest text-ivory/70">{c.l}</span>
+          <span className="text-[10px] font-semibold uppercase tracking-widest text-ivory/70">
+            {c.l}
+          </span>
         </div>
       ))}
     </div>

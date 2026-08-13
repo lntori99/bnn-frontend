@@ -38,7 +38,7 @@ export default function Navbar() {
           : "border-b border-transparent bg-transparent py-5"
       }`}
     >
-      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:bg-gold focus:px-3 focus:py-2">
+      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:bg-[#d6ac63] focus:px-3 focus:py-2">
         Skip to content
       </a>
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 lg:px-8">
@@ -49,7 +49,7 @@ export default function Navbar() {
           {site.nav.map((item) =>
             item.children ? (
               <Popover key={item.href} className="relative shrink-0">
-                <PopoverButton className="inline-flex items-center gap-1 whitespace-nowrap text-sm uppercase text-ivory/85 transition-colors hover:text-gold focus:outline-none data-open:text-gold">
+                <PopoverButton className="inline-flex items-center gap-1 whitespace-nowrap text-sm uppercase text-ivory/85 transition-colors hover:text-[#d6ac63] focus:outline-none data-open:text-[#d6ac63]">
                   {item.label}
                   <HiChevronDown className="text-xs transition-transform data-open:rotate-180" />
                 </PopoverButton>
@@ -61,7 +61,7 @@ export default function Navbar() {
                     <Link
                       key={child.href}
                       href={child.href}
-                      className="block whitespace-nowrap rounded-xl px-4 py-2.5 text-sm text-ivory/80 transition-colors hover:bg-ivory/5 hover:text-gold"
+                      className="block whitespace-nowrap rounded-xl px-4 py-2.5 text-sm text-ivory/80 transition-colors hover:bg-ivory/5 hover:text-[#d6ac63]"
                     >
                       {child.label}
                     </Link>
@@ -72,8 +72,8 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`shrink-0 whitespace-nowrap text-sm uppercase transition-colors hover:text-gold ${
-                  pathname === item.href ? "text-gold" : "text-ivory/85"
+                className={`shrink-0 whitespace-nowrap text-sm uppercase transition-colors hover:text-[#d6ac63] ${
+                  pathname === item.href ? "text-[#d6ac63]" : "text-ivory/85"
                 }`}
               >
                 {item.label}
@@ -85,7 +85,7 @@ export default function Navbar() {
         <div className="hidden shrink-0 items-center gap-3 xl:flex">
           <Link
             href="/community"
-            className="whitespace-nowrap rounded-full border-2 border-ivory/40 px-4 py-2.5 text-xs font-bold uppercase tracking-wide text-ivory transition-colors hover:border-gold hover:text-gold"
+            className="whitespace-nowrap rounded-full border-2 border-ivory/40 px-4 py-2.5 text-xs font-bold uppercase tracking-wide text-ivory transition-colors hover:border-gold hover:text-[#d6ac63]"
           >
             Join the Community
           </Link>
@@ -93,7 +93,7 @@ export default function Navbar() {
             href={site.bookUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="whitespace-nowrap rounded-full bg-gold px-4 py-2.5 text-xs font-bold uppercase tracking-wide text-ink transition-colors hover:bg-gold-soft"
+            className="whitespace-nowrap rounded-full bg-[#d6ac63] px-4 py-2.5 text-xs font-bold uppercase tracking-wide text-ink transition-colors hover:bg-[#d6ac63]-soft"
           >
             Buy the Book
           </a>
@@ -102,7 +102,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => dispatch(setMobileMenu(true))}
-          className="grid h-11 w-11 place-items-center rounded-full border border-ivory/20 text-ivory transition-colors hover:border-gold hover:text-gold xl:hidden"
+          className="grid h-11 w-11 place-items-center rounded-full border border-ivory/20 text-ivory transition-colors hover:border-gold hover:text-[#d6ac63] xl:hidden"
           aria-label="Open menu"
         >
           <HiBars3 className="text-xl" />
@@ -134,7 +134,7 @@ export default function Navbar() {
                     <button
                       type="button"
                       onClick={closeMenu}
-                      className="grid h-11 w-11 place-items-center rounded-full border border-ivory/20 text-ivory hover:border-gold hover:text-gold"
+                      className="grid h-11 w-11 place-items-center rounded-full border border-ivory/20 text-ivory hover:border-gold hover:text-[#d6ac63]"
                       aria-label="Close menu"
                     >
                       <HiXMark className="text-xl" />
@@ -145,7 +145,7 @@ export default function Navbar() {
                     <Link
                       href="/community"
                       onClick={closeMenu}
-                      className="rounded-full bg-gold px-6 py-3 text-center text-[0.78rem] font-bold uppercase tracking-wide text-ink hover:bg-gold-soft"
+                      className="rounded-full bg-[#d6ac63] px-6 py-3 text-center text-[0.78rem] font-bold uppercase tracking-wide text-ink hover:bg-[#d6ac63]-soft"
                     >
                       Join the Community
                     </Link>
@@ -154,7 +154,7 @@ export default function Navbar() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={closeMenu}
-                      className="rounded-full border-2 border-current px-6 py-3 text-center text-[0.78rem] font-bold uppercase tracking-wide text-ivory hover:text-gold"
+                      className="rounded-full border-2 border-current px-6 py-3 text-center text-[0.78rem] font-bold uppercase tracking-wide text-ivory hover:text-[#d6ac63]"
                     >
                       Buy the Book
                     </a>
@@ -168,7 +168,7 @@ export default function Navbar() {
                         <Link
                           href={item.href}
                           onClick={closeMenu}
-                          className="block py-2.5 font-display text-lg uppercase text-ivory transition-colors hover:text-gold"
+                          className="block py-2.5 font-display text-lg uppercase text-ivory transition-colors hover:text-[#d6ac63]"
                         >
                           {item.label}
                         </Link>
@@ -179,7 +179,7 @@ export default function Navbar() {
                                 key={child.href}
                                 href={child.href}
                                 onClick={closeMenu}
-                                className="block py-2 text-sm text-ivory/60 transition-colors hover:text-gold"
+                                className="block py-2 text-sm text-ivory/60 transition-colors hover:text-[#d6ac63]"
                               >
                                 {child.label}
                               </Link>

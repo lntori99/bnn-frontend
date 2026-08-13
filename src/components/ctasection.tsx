@@ -36,8 +36,6 @@ const slides = [
 export default function CTASection() {
   return (
     <section className="on-dark bg-forest-deep text-ivory">
-   
-
       <Swiper
         modules={[Autoplay, Pagination]}
         autoplay={{ delay: 6000, disableOnInteraction: false }}
@@ -60,12 +58,16 @@ export default function CTASection() {
               <div className="absolute inset-0 bg-ink/60" />
               <div className="relative mx-auto w-full max-w-7xl px-4 lg:px-8">
                 <div className="mx-auto max-w-xl text-center">
-                  <p className=" text-3xl font-medium tracking-tight sm:text-4xl">{s.title}</p>
-                  <p className="mt-4 text-base text-ivory/80">{s.description}</p>
+                  <p className=" text-3xl font-medium tracking-tight sm:text-4xl">
+                    {s.title}
+                  </p>
+                  <p className="mt-4 text-base text-ivory/80">
+                    {s.description}
+                  </p>
                   <div className="mt-8">
                     <Link
                       href={s.href}
-                      className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-[0.8rem] text-[0.95rem] font-bold text-ink transition duration-150 ease-out hover:-translate-y-px hover:bg-gold-soft focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2"
+                      className="inline-flex items-center gap-2 rounded-full bg-[#d6ac63] px-6 py-[0.8rem] text-[0.95rem] font-bold text-ink transition duration-150 ease-out hover:-translate-y-px hover:bg-[#d6ac63]-soft focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2"
                     >
                       {s.cta}
                     </Link>
@@ -76,8 +78,6 @@ export default function CTASection() {
           </SwiperSlide>
         ))}
       </Swiper>
-
-
     </section>
   );
 }

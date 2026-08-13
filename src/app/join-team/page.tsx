@@ -42,7 +42,7 @@ export default function JoinTeamPage() {
                     className="flex gap-3 text-sm leading-relaxed text-white/75"
                   >
                     <span
-                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#d6ac63]"
                       aria-hidden
                     />
                     {t}

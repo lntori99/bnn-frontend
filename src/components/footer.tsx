@@ -9,13 +9,22 @@ export default function Footer() {
         <div>
           <p className="text-lg font-medium tracking-tight">Bold New Normal</p>
           <p className="mt-3 max-w-xs text-sm text-ivory/70">{site.tagline}</p>
-          <a href={site.bookUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-[0.8rem] text-[0.95rem] font-bold text-ink transition duration-150 ease-out hover:-translate-y-px hover:bg-gold-soft focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2 mt-6">
+          <a
+            href={site.bookUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-[#d6ac63] px-6 py-[0.8rem] text-[0.95rem] font-bold text-ink transition duration-150 ease-out hover:-translate-y-px hover:bg-[#d6ac63]-soft focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2 mt-6"
+          >
             Buy the Book
           </a>
         </div>
         <nav aria-label="Footer" className="grid grid-cols-2 gap-2 text-sm">
           {site.nav.map((i) => (
-            <Link key={i.href} href={i.href} className="py-1 text-ivory/80 hover:text-gold">
+            <Link
+              key={i.href}
+              href={i.href}
+              className="py-1 text-ivory/80 hover:text-[#d6ac63]"
+            >
               {i.label}
             </Link>
           ))}
@@ -25,13 +34,23 @@ export default function Footer() {
           <ul className="mt-3 space-y-2">
             {site.social.map((s) => (
               <li key={s.label}>
-                <a href={s.url} target="_blank" rel="noopener noreferrer" className="text-ivory/80 hover:text-gold">
+                <a
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-ivory/80 hover:text-[#d6ac63]"
+                >
                   {s.label}
                 </a>
               </li>
             ))}
             <li>
-              <a href={`mailto:${site.email}`} className="text-ivory/80 hover:text-gold">{site.email}</a>
+              <a
+                href={`mailto:${site.email}`}
+                className="text-ivory/80 hover:text-[#d6ac63]"
+              >
+                {site.email}
+              </a>
             </li>
           </ul>
         </div>

@@ -33,8 +33,10 @@ export default function TeamGrid({ members }: { members: TeamMember[] }) {
               </div>
               <p className="text-lg font-medium tracking-tight">{m.name}</p>
               <p className="text-sm font-semibold text-forest">{m.title}</p>
-              <p className="mt-2 text-sm leading-relaxed text-ink/70">{m.shortBio}</p>
-              <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-gold">
+              <p className="mt-2 text-sm leading-relaxed text-ink/70">
+                {m.shortBio}
+              </p>
+              <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-[#d6ac63]">
                 View full profile
                 <HiArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </span>
@@ -43,15 +45,27 @@ export default function TeamGrid({ members }: { members: TeamMember[] }) {
         ))}
       </ul>
 
-      <Modal open={!!active} onClose={() => setActive(null)} title={active?.name}>
+      <Modal
+        open={!!active}
+        onClose={() => setActive(null)}
+        title={active?.name}
+      >
         {active && (
           <>
             <p className="font-semibold text-forest">{active.title}</p>
-            <p className="mt-4 text-ink/70">{active.fullBio ?? active.shortBio}</p>
+            <p className="mt-4 text-ink/70">
+              {active.fullBio ?? active.shortBio}
+            </p>
             {active.links && (
               <div className="mt-5 flex gap-3">
                 {active.links.map((l) => (
-                  <a key={l.url} href={l.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-forest px-6 py-[0.8rem] text-[0.95rem] font-bold text-ivory transition duration-150 ease-out hover:-translate-y-px hover:bg-forest-deep focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2">
+                  <a
+                    key={l.url}
+                    href={l.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-forest px-6 py-[0.8rem] text-[0.95rem] font-bold text-ivory transition duration-150 ease-out hover:-translate-y-px hover:bg-forest-deep focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2"
+                  >
                     {l.label}
                   </a>
                 ))}

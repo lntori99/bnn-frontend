@@ -65,7 +65,7 @@ export default function MediaFeature({ items }: { items: MediaItem[] }) {
                       />
                     )}
                     <div className="absolute inset-0 bg-ink/30 transition-colors group-hover:bg-ink/10" />
-                    <span className="absolute inset-0 m-auto grid h-14 w-14 place-items-center rounded-full bg-gold text-xl text-ink transition-transform duration-300 group-hover:scale-110">
+                    <span className="absolute inset-0 m-auto grid h-14 w-14 place-items-center rounded-full bg-[#d6ac63] text-xl text-ink transition-transform duration-300 group-hover:scale-110">
                       {m.type === "video" ? (
                         <HiPlay className="ml-0.5" />
                       ) : (
@@ -74,7 +74,7 @@ export default function MediaFeature({ items }: { items: MediaItem[] }) {
                     </span>
                   </div>
                   <div className="p-5">
-                    <p className="text-xs font-medium uppercase text-gold">
+                    <p className="text-xs font-medium uppercase text-[#d6ac63]">
                       {m.event} · {m.year}
                     </p>
                     <p className="mt-2 line-clamp-2  text-base leading-snug text-ivory">

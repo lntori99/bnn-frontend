@@ -47,7 +47,10 @@ export default async function EventDetailPage({ params }: Props) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <header className="on-dark relative -mt-16 overflow-hidden bg-ink pb-20 pt-36 text-ivory sm:pb-24 sm:pt-44">
         {event.image && (
           <>
@@ -60,34 +63,65 @@ export default async function EventDetailPage({ params }: Props) {
               sizes="100vw"
               className="object-cover opacity-25"
             />
-            <div aria-hidden="true" className="absolute inset-0 bg-linear-to-t from-ink via-ink/70 to-ink/40" />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-linear-to-t from-ink via-ink/70 to-ink/40"
+            />
           </>
         )}
         <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
-          <span className="inline-flex items-center gap-2 rounded-full border border-gold/50 bg-ivory/5 px-4 py-1.5 text-xs font-light uppercase tracking-wide text-gold backdrop-blur-md">
-            <span className="h-1.5 w-1.5 rounded-full bg-gold shadow-[0_0_8px_var(--color-gold)]" />
+          <span className="inline-flex items-center gap-2 rounded-full border border-gold/50 bg-ivory/5 px-4 py-1.5 text-xs font-light uppercase tracking-wide text-[#d6ac63] backdrop-blur-md">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#d6ac63] shadow-[0_0_8px_var(--color-gold)]" />
             {isPast ? "Past event" : "Upcoming event"}
           </span>
-          <h1 className="mt-5 max-w-3xl text-4xl leading-[1.05] tracking-tight text-ivory sm:text-5xl">
+          <p className="mt-5 max-w-3xl text-4xl leading-[1.05] tracking-tight text-ivory sm:text-5xl">
             {event.title}
-          </h1>
-          <p className="mt-6 text-base text-ivory/70 sm:text-lg">
-            {date.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}
-            {" · "}
-            {date.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })} {event.timezone}
           </p>
-          <p className="mt-1 text-ivory/70">{event.isOnline ? event.onlineDetails ?? "Online event" : event.venue}</p>
+          <p className="mt-6 text-base text-ivory/70 sm:text-lg">
+            {date.toLocaleDateString("en-GB", {
+              weekday: "long",
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            })}
+            {" · "}
+            {date.toLocaleTimeString("en-GB", {
+              hour: "2-digit",
+              minute: "2-digit",
+            })}{" "}
+            {event.timezone}
+          </p>
+          <p className="mt-1 text-ivory/70">
+            {event.isOnline
+              ? (event.onlineDetails ?? "Online event")
+              : event.venue}
+          </p>
           {!isPast && <Countdown target={event.startsAt} className="mt-8" />}
           <div className="mt-8 flex flex-wrap gap-4">
             {!isPast && event.registrationUrl && (
-              <a href={event.registrationUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-[0.8rem] text-[0.95rem] font-bold text-ink transition duration-150 ease-out hover:-translate-y-px hover:bg-gold-soft focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2">
+              <a
+                href={event.registrationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-[#d6ac63] px-4 py-2 text-sm font-medium text-ink transition duration-150 ease-out hover:-translate-y-px hover:bg-[#d6ac63]-soft focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2"
+              >
                 Register for this event
               </a>
             )}
             {isPast && event.watchUrl && (
-              <Link href={event.watchUrl} className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-[0.8rem] text-[0.95rem] font-bold text-ink transition duration-150 ease-out hover:-translate-y-px hover:bg-gold-soft focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2">Watch / Listen</Link>
+              <Link
+                href={event.watchUrl}
+                className="inline-flex items-center gap-2 rounded-full bg-[#d6ac63] px-4 py-2 text-sm font-medium text-ink transition duration-150 ease-out hover:-translate-y-px hover:bg-[#d6ac63]-soft focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2"
+              >
+                Watch / Listen
+              </Link>
             )}
-            <Link href="/events" className="inline-flex items-center gap-2 rounded-full border-2 border-current px-6 py-[0.8rem] text-[0.95rem] font-bold transition duration-150 ease-out hover:-translate-y-px focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2 text-ivory">All events</Link>
+            <Link
+              href="/events"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-current px-4 py-2 text-sm font-medium transition duration-150 ease-out hover:-translate-y-px focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2 text-ivory"
+            >
+              All events
+            </Link>
           </div>
         </div>
       </header>
@@ -95,12 +129,20 @@ export default async function EventDetailPage({ params }: Props) {
       <section className="mx-auto max-w-7xl px-4 py-20 sm:py-28 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1fr_360px]">
           <div>
-            <p className="text-2xl font-medium tracking-tight">About this event</p>
-            <p className="mt-4 text-base leading-relaxed text-ink/70 sm:text-lg">{event.description}</p>
+            <p className="text-2xl font-medium tracking-tight">
+              About this event
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-ink/70 sm:text-lg">
+              {event.description}
+            </p>
             {event.agenda && (
               <>
-                <p className="mt-10 text-2xl font-medium tracking-tight">Agenda</p>
-                <p className="mt-4 whitespace-pre-line text-base leading-relaxed text-ink/70 sm:text-lg">{event.agenda}</p>
+                <p className="mt-10 text-2xl font-medium tracking-tight">
+                  Agenda
+                </p>
+                <p className="mt-4 whitespace-pre-line text-base leading-relaxed text-ink/70 sm:text-lg">
+                  {event.agenda}
+                </p>
               </>
             )}
           </div>

@@ -44,15 +44,11 @@ export default function Roadmap({
                     <span className="h-1.5 w-1.5 rounded-full bg-[#d6ac63] shadow-[0_0_8px_#d6ac63]" />
                     {m.phase}
                   </span>
-                  <p className="mt-1  text-xl text-gold">
-                    {m.period}
-                  </p>
+                  <p className="mt-1  text-xl text-[#d6ac63]">{m.period}</p>
                   <p className="mt-2  text-lg leading-snug text-ivory">
                     {m.headline}
                   </p>
-                  <p className="mt-3 text-sm  text-ivory/60">
-                    {m.detail}
-                  </p>
+                  <p className="mt-3 text-sm  text-ivory/60">{m.detail}</p>
                 </li>
               </Reveal>
             ))}

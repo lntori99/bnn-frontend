@@ -9,7 +9,7 @@ export default function BookPromo() {
         <Reveal className="mx-auto">
           <div className="relative">
             <div
-              className="absolute -inset-6 rounded-full bg-gold/15 blur-3xl"
+              className="absolute -inset-6 rounded-full bg-[#d6ac63]/15 blur-3xl"
               aria-hidden="true"
             />
             <div className="relative aspect-163/261 w-60 overflow-hidden rounded-2xl shadow-2xl sm:w-72">
@@ -44,7 +44,7 @@ export default function BookPromo() {
               href={site.bookUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-[0.8rem] text-[0.95rem] font-bold text-ink transition duration-150 ease-out hover:-translate-y-px hover:bg-gold-soft focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2"
+              className="inline-flex items-center gap-2 rounded-full bg-[#d6ac63] px-6 py-[0.8rem] text-[0.95rem] font-bold text-ink transition duration-150 ease-out hover:-translate-y-px hover:bg-[#d6ac63]-soft focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2"
             >
               Buy the Book
             </a>
