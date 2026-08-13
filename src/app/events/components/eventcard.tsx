@@ -13,7 +13,7 @@ export default function EventCard({
   const date = new Date(event.startsAt);
   return (
     <article
-      className={`overflow-hidden rounded-2xl border ${past ? "border-ink/10 bg-sand" : "on-dark border-gold/40 bg-ink text-ivory"}`}
+      className={`overflow-hidden rounded-2xl border ${past ? "border-ink/10 bg-sand" : "on-dark border-[#d6ac63]/40 bg-ink text-ivory"}`}
     >
       {event.image && (
         <div className="relative aspect-video w-full overflow-hidden">

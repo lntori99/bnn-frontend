@@ -3,9 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/pagination";
 import { site } from "@/data/site";
 import { placeholderImages } from "@/data/placeholder-images";
 
@@ -37,7 +36,7 @@ export default function CTASection() {
   return (
     <section className="on-dark bg-forest-deep text-ivory">
       <Swiper
-        modules={[Autoplay, Pagination]}
+        modules={[Autoplay]}
         autoplay={{ delay: 6000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
         loop
@@ -45,7 +44,7 @@ export default function CTASection() {
       >
         {slides.map((s, i) => (
           <SwiperSlide key={s.title}>
-            <div className="relative flex min-h-110 items-center overflow-hidden py-16">
+            <div className="relative flex items-center overflow-hidden py-16">
               <Image
                 src={s.image}
                 alt=""
@@ -67,7 +66,7 @@ export default function CTASection() {
                   <div className="mt-8">
                     <Link
                       href={s.href}
-                      className="inline-flex items-center gap-2 rounded-full bg-[#d6ac63] px-6 py-[0.8rem] text-[0.95rem] font-bold text-ink transition duration-150 ease-out hover:-translate-y-px hover:bg-[#d6ac63]-soft focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2"
+                      className="inline-flex items-center gap-2 rounded-full bg-[#d6ac63] px-4 py-2 text-sm font-medium text-ink transition duration-150 ease-out hover:-translate-y-px hover:bg-[#d6ac63]-soft focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2"
                     >
                       {s.cta}
                     </Link>

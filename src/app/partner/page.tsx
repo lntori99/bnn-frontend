@@ -7,13 +7,11 @@ import {
   FiLayers,
   FiUsers,
 } from "react-icons/fi";
-
 import Reveal from "@/components/reveal";
-
-import PartnerForm from "@/app/partner/components/partnerform";
-import DonationDetails from "@/app/partner/components/donationdetails";
 import PageHeader from "@/components/pageheader";
 import SectionHeading from "@/components/sectionheading";
+import PartnerForm from "./components/partnerForm";
+import DonationDetails from "./components/donationDetails";
 
 export const metadata: Metadata = {
   title: "Partner / Fundraising",

@@ -1,62 +1,80 @@
 import Link from "next/link";
-import { site } from "@/data/site";
+import { FiArrowUpRight, FiLinkedin, FiTwitter, FiYoutube } from "react-icons/fi";
+import Logo from "@/components/logo";
+import { navLinks, primaryCtas, site } from "@/data/site";
+
+const socialIcons: Record<string, React.ReactNode> = {
+  LinkedIn: <FiLinkedin />,
+  X: <FiTwitter />,
+  YouTube: <FiYoutube />,
+};
 
 export default function Footer() {
   return (
-    <footer className="on-dark bg-ink text-ivory">
-      <div className="kente-band kente-band--thin" aria-hidden="true" />
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:grid-cols-3 lg:px-8">
+    <footer className="on-dark border-t border-ivory/10 bg-ink text-ivory">
+      <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 lg:grid-cols-[1.4fr_1fr_1fr] lg:gap-16 lg:px-8">
         <div>
-          <p className="text-lg font-medium tracking-tight">Bold New Normal</p>
-          <p className="mt-3 max-w-xs text-sm text-ivory/70">{site.tagline}</p>
-          <a
-            href={site.bookUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-[#d6ac63] px-6 py-[0.8rem] text-[0.95rem] font-bold text-ink transition duration-150 ease-out hover:-translate-y-px hover:bg-[#d6ac63]-soft focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2 mt-6"
-          >
-            Buy the Book
-          </a>
+          <Logo onDark />
+          <p className="mt-5 max-w-sm text-sm leading-relaxed text-ivory/60">
+            {site.description}
+          </p>
+          <div className="mt-6 flex gap-3">
+            {site.socials.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={s.label}
+                className="grid h-10 w-10 place-items-center rounded-full border border-ivory/15 text-ivory/70 transition-colors hover:border-gold hover:text-gold"
+              >
+                {socialIcons[s.label]}
+              </a>
+            ))}
+          </div>
         </div>
-        <nav aria-label="Footer" className="grid grid-cols-2 gap-2 text-sm">
-          {site.nav.map((i) => (
-            <Link
-              key={i.href}
-              href={i.href}
-              className="py-1 text-ivory/80 hover:text-[#d6ac63]"
-            >
-              {i.label}
-            </Link>
-          ))}
-        </nav>
-        <div className="text-sm">
-          <p className="eyebrow">Connect</p>
-          <ul className="mt-3 space-y-2">
-            {site.social.map((s) => (
-              <li key={s.label}>
-                <a
-                  href={s.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-ivory/80 hover:text-[#d6ac63]"
-                >
-                  {s.label}
-                </a>
+
+        <nav aria-label="Footer">
+          <p className="eyebrow">Explore</p>
+          <ul className="mt-5 grid gap-2.5">
+            {navLinks.map((l) => (
+              <li key={l.label}>
+                <Link href={l.href} className="text-sm text-ivory/70 transition-colors hover:text-gold">
+                  {l.label}
+                </Link>
               </li>
             ))}
-            <li>
-              <a
-                href={`mailto:${site.email}`}
-                className="text-ivory/80 hover:text-[#d6ac63]"
-              >
-                {site.email}
-              </a>
-            </li>
           </ul>
+        </nav>
+
+        <div>
+          <p className="eyebrow">Act now</p>
+          <ul className="mt-5 grid gap-2.5">
+            {primaryCtas.map((c) => (
+              <li key={c.label}>
+                <Link
+                  href={c.href}
+                  className="group inline-flex items-center gap-1.5 text-sm text-ivory/70 transition-colors hover:text-gold"
+                >
+                  {c.label}
+                  <FiArrowUpRight className="opacity-0 transition-opacity group-hover:opacity-100" />
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-8 text-sm text-ivory/50">
+            <a href={`mailto:${site.email}`} className="hover:text-gold">
+              {site.email}
+            </a>
+          </p>
         </div>
       </div>
-      <div className="border-t border-ivory/10 py-5 text-center text-xs text-ivory/50">
-        © {new Date().getFullYear()} Bold New Normal. Founded by Lucy Quist.
+
+      <div className="border-t border-ivory/10">
+        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-6 text-xs text-ivory/40 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+          <p>© {new Date().getFullYear()} Bold New Normal. All rights reserved.</p>
+          <p>{site.tagline}</p>
+        </div>
       </div>
     </footer>
   );

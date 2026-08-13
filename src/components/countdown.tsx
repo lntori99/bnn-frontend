@@ -66,7 +66,7 @@ export default function Countdown({
       {cells.map((c) => (
         <div
           key={c.l}
-          className="min-w-16 rounded-2xl border border-gold/40 bg-ink px-2 py-2 text-center"
+          className="min-w-16 rounded-2xl border border-[#d6ac63]/40 bg-ink px-2 py-2 text-center"
         >
           {/* tabular-nums keeps Inter's digits fixed-width so the timer doesn't jitter */}
           <span className="block text-2xl font-bold tabular-nums text-[#d6ac63]">

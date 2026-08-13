@@ -187,7 +187,7 @@ export default function MediaLibrary() {
                 <button
                   type="button"
                   onClick={() => setActive(null)}
-                  className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/20 text-white/70 hover:border-gold hover:text-[#d6ac63]"
+                  className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/20 text-white/70 hover:border-[#d6ac63] hover:text-[#d6ac63]"
                   aria-label="Close player"
                 >
                   <FiX />

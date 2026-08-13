@@ -85,7 +85,7 @@ export default function Navbar() {
         <div className="hidden shrink-0 items-center gap-3 xl:flex">
           <Link
             href="/community"
-            className="whitespace-nowrap rounded-full border-2 border-ivory/40 px-4 py-2.5 text-xs font-bold uppercase tracking-wide text-ivory transition-colors hover:border-gold hover:text-[#d6ac63]"
+            className="whitespace-nowrap rounded-full border-2 border-ivory/40 px-4 py-2.5 text-xs font-bold uppercase tracking-wide text-ivory transition-colors hover:border-[#d6ac63] hover:text-[#d6ac63]"
           >
             Join the Community
           </Link>
@@ -102,7 +102,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => dispatch(setMobileMenu(true))}
-          className="grid h-11 w-11 place-items-center rounded-full border border-ivory/20 text-ivory transition-colors hover:border-gold hover:text-[#d6ac63] xl:hidden"
+          className="grid h-11 w-11 place-items-center rounded-full border border-ivory/20 text-ivory transition-colors hover:border-[#d6ac63] hover:text-[#d6ac63] xl:hidden"
           aria-label="Open menu"
         >
           <HiBars3 className="text-xl" />
@@ -134,7 +134,7 @@ export default function Navbar() {
                     <button
                       type="button"
                       onClick={closeMenu}
-                      className="grid h-11 w-11 place-items-center rounded-full border border-ivory/20 text-ivory hover:border-gold hover:text-[#d6ac63]"
+                      className="grid h-11 w-11 place-items-center rounded-full border border-ivory/20 text-ivory hover:border-[#d6ac63] hover:text-[#d6ac63]"
                       aria-label="Close menu"
                     >
                       <HiXMark className="text-xl" />

@@ -36,7 +36,7 @@ export default function Roadmap({
               <Reveal key={m.id} delay={i * 0.08}>
                 <li className="relative pt-8">
                   <span
-                    className="absolute left-0 top-0 block h-3 w-3 rounded-full border border-gold bg-ink"
+                    className="absolute left-0 top-0 block h-3 w-3 rounded-full border border-[#d6ac63] bg-ink"
                     aria-hidden="true"
                   />
 

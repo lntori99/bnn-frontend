@@ -26,7 +26,7 @@ function CopyRow({ label, value }: { label: string; value: string }) {
       <button
         type="button"
         onClick={copy}
-        className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-white/15 text-white/60 transition-colors hover:border-gold hover:text-[#d6ac63]"
+        className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-white/15 text-white/60 transition-colors hover:border-[#d6ac63] hover:text-[#d6ac63]"
         aria-label={copied ? `${label} copied` : `Copy ${label}`}
       >
         {copied ? <FiCheck className="text-[#d6ac63]" /> : <FiCopy />}
@@ -42,7 +42,7 @@ function CopyRow({ label, value }: { label: string; value: string }) {
 export default function DonationDetails() {
   return (
     <aside className="rounded-3xl bg-ink p-8 sm:p-9" aria-labelledby="donation-heading">
-      <p className="inline-flex items-center gap-2 rounded-full border border-gold/50 px-4 py-1.5 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-[#d6ac63]">
+      <p className="inline-flex items-center gap-2 rounded-full border border-[#d6ac63]/50 px-4 py-1.5 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-[#d6ac63]">
         <FiShield /> Official donation details
       </p>
       <h3 id="donation-heading" className="mt-5 font-display text-2xl text-white">

@@ -25,7 +25,7 @@ export default function Modal({ open, onClose, title, children }: Props) {
             <button
               aria-label="Close dialog"
               onClick={onClose}
-              className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-ink/15 transition-colors hover:border-gold hover:text-[#d6ac63]"
+              className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-ink/15 transition-colors hover:border-[#d6ac63] hover:text-[#d6ac63]"
             >
               <HiXMark className="h-5 w-5" />
             </button>

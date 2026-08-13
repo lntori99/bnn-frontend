@@ -50,7 +50,7 @@ export default function JoinCommunity() {
       <div>
         <Reveal>
           <p className="eyebrow">Step 1</p>
-          <h2 className="mt-3 text-2xl sm:text-3xl">Choose your sector.</h2>
+          <p className="mt-3 text-2xl sm:text-3xl">Choose your sector.</p>
         </Reveal>
         <div className="mt-8 grid gap-4 sm:grid-cols-2">
           {sectors.map((s, i) => {
@@ -63,7 +63,7 @@ export default function JoinCommunity() {
                   aria-pressed={selected}
                   className={`group relative block w-full overflow-hidden rounded-2xl border-2 text-left transition-all duration-300 ${
                     selected
-                      ? "border-gold shadow-[0_10px_40px_rgba(214,172,99,0.25)]"
+                      ? "border-[#d6ac63] shadow-[0_10px_40px_rgba(214,172,99,0.25)]"
                       : "border-transparent"
                   }`}
                 >
@@ -85,9 +85,9 @@ export default function JoinCommunity() {
                     )}
                   </div>
                   <div className="absolute inset-x-0 bottom-0 p-5">
-                    <h3 className="font-display text-lg text-white">
+                    <p className=" text-lg text-white">
                       {s.name}
-                    </h3>
+                    </p>
                     <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-white/65">
                       {s.scope}
                     </p>
@@ -103,7 +103,7 @@ export default function JoinCommunity() {
       <Reveal delay={0.1}>
         <div className="rounded-3xl border border-ink/10 bg-white p-7 shadow-sm sm:p-9 lg:sticky lg:top-28">
           <p className="eyebrow">Step 2</p>
-          <h2 className="mt-3 text-2xl">Tell us about you.</h2>
+          <p className="mt-3 tracking-tight text-2xl">Tell us about you.</p>
           <p className="mt-2 text-sm text-ink/60">
             {sector
               ? `Joining: ${sectors.find((s) => s.key === sector)?.name}`

@@ -3,10 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import MainLayout from "@/shared/mainlayout";
 import Providers from "@/core/providers";
-import { placeholderImages } from "@/data/placeholder-images";
 
-// Headings use Times New Roman, a system serif — no webfont to load.
-// See --font-display in globals.css for the stack.
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -24,7 +21,7 @@ export const metadata: Metadata = {
     title: "Bold New Normal",
     description: "Africa's transformation, driven by Africans.",
     type: "website",
-    images: [placeholderImages.ogCover],
+   
   },
 };
 
