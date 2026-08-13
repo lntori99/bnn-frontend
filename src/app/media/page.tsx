@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import PageHeader from "@/components/pageheader";
 import MediaLibrary from "./components/medialibrary";
 import { getMedia } from "@/services/media";
+import { placeholderImages } from "@/data/placeholder-images";
 
 export const metadata: Metadata = {
   title: "Media Library",
@@ -15,7 +16,8 @@ export default async function MediaPage() {
       <PageHeader
         eyebrow="Media Library"
         title="The archive"
-        intro="Every talk, panel and conversation from BNN conferences — searchable by event, year, topic and format."
+        lead="Every talk, panel and conversation from BNN conferences — searchable by event, year, topic and format."
+        image={placeholderImages.media.keynote}
       />
       <MediaLibrary items={items} />
     </>

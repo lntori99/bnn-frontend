@@ -62,7 +62,7 @@ h1, h2, h3, .font-display {
   border: 1.5px solid #d8d0bd;
   background: #fff;
   padding: 0.7rem 0.9rem;
-  border-radius: 2px;
+  border-radius: 0.75rem;
   font-size: 0.95rem;
 }
 .field:focus { outline: 2px solid var(--color-forest); outline-offset: 1px; }

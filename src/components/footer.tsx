@@ -4,10 +4,10 @@ import { site } from "@/data/site";
 export default function Footer() {
   return (
     <footer className="on-dark bg-ink text-ivory">
-      <div className="kente-band" aria-hidden="true" />
+      <div className="kente-band kente-band--thin" aria-hidden="true" />
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:grid-cols-3 lg:px-8">
         <div>
-          <p className="font-display text-lg font-bold uppercase">Bold New Normal</p>
+          <p className="text-lg font-medium tracking-tight">Bold New Normal</p>
           <p className="mt-3 max-w-xs text-sm text-ivory/70">{site.tagline}</p>
           <a href={site.bookUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-[0.8rem] text-[0.95rem] font-bold text-ink transition duration-150 ease-out hover:-translate-y-px hover:bg-gold-soft focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2 mt-6">
             Buy the Book

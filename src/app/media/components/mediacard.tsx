@@ -9,8 +9,8 @@ export default function MediaCard({ item }: { item: MediaItem }) {
   const [playing, setPlaying] = useState(false);
 
   return (
-    <article className="flex h-full flex-col border border-ink/15 bg-ivory">
-      <div className="relative aspect-video overflow-hidden rounded-2xl bg-ink">
+    <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-ink/10 bg-ivory">
+      <div className="relative aspect-video overflow-hidden bg-ink">
         {playing ? (
           // Lightweight embed: iframe only loads after the person chooses to play
           <iframe
@@ -49,9 +49,9 @@ export default function MediaCard({ item }: { item: MediaItem }) {
         <p className="text-xs font-bold uppercase tracking-widest text-forest">
           {item.event} · {item.year} · {item.type}
         </p>
-        <h3 className="mt-2 font-display text-lg font-bold">{item.title}</h3>
-        {item.speaker && <p className="mt-1 text-sm font-semibold opacity-70">{item.speaker}</p>}
-        {item.description && <p className="mt-2 text-sm opacity-75">{item.description}</p>}
+        <p className="mt-2 text-lg font-medium tracking-tight">{item.title}</p>
+        {item.speaker && <p className="mt-1 text-sm font-semibold text-ink/70">{item.speaker}</p>}
+        {item.description && <p className="mt-2 text-sm leading-relaxed text-ink/70">{item.description}</p>}
       </div>
     </article>
   );

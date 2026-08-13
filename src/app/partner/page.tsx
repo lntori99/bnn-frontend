@@ -4,6 +4,7 @@ import PartnerForm from "./components/partnerform";
 import DonationDetails from "./components/donationdetails";
 import Reveal from "@/components/reveal";
 import { getDonationDetails } from "@/services/content";
+import { placeholderImages } from "@/data/placeholder-images";
 
 export const metadata: Metadata = {
   title: "Partner / Fundraising",
@@ -27,15 +28,16 @@ export default async function PartnerPage() {
       <PageHeader
         eyebrow="Partner / Fundraising"
         title="Fund the bold new normal"
-        intro="Movements scale on partnership. Here's how organisations and individuals power BNN's work."
+        lead="Movements scale on partnership. Here's how organisations and individuals power BNN's work."
+        image={placeholderImages.focus}
       />
-      <section className="mx-auto max-w-7xl px-4 py-16 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:py-28 lg:px-8">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {types.map((p, i) => (
             <Reveal key={p.t} delay={i * 0.05}>
-              <div className="h-full border-t-4 border-forest bg-sand p-6">
-                <h2 className="font-display text-lg font-bold">{p.t}</h2>
-                <p className="mt-2 text-sm opacity-80">{p.d}</p>
+              <div className="h-full rounded-2xl border border-ink/10 bg-sand p-6">
+                <p className="text-lg font-medium tracking-tight">{p.t}</p>
+                <p className="mt-2 text-sm leading-relaxed text-ink/70">{p.d}</p>
               </div>
             </Reveal>
           ))}
@@ -43,7 +45,7 @@ export default async function PartnerPage() {
 
         <div className="mt-16 grid gap-12 lg:grid-cols-[1fr_380px]">
           <div>
-            <h2 className="text-2xl font-bold">Start the conversation</h2>
+            <p className="text-2xl font-medium tracking-tight">Start the conversation</p>
             <PartnerForm />
           </div>
           <DonationDetails details={donation} />

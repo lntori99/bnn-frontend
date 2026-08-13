@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/pageheader";
+import SectionHeading from "@/components/sectionheading";
 import EventCard from "./components/eventcard";
 import CTASection from "@/components/ctasection";
 import { getEvents } from "@/services/events";
+import { placeholderImages } from "@/data/placeholder-images";
 
 export const metadata: Metadata = {
   title: "Events",
@@ -17,12 +19,11 @@ export default async function EventsPage() {
 
   return (
     <>
-      <PageHeader eyebrow="Events" title="Convene. Connect. Build." />
-      <section className="mx-auto max-w-7xl px-4 py-16 lg:px-8">
-        <h2 className="text-3xl font-bold">Current events</h2>
-        <div className="kente-band kente-band--thin mt-4 max-w-40" aria-hidden="true" />
+      <PageHeader eyebrow="Events" title="Convene. Connect. Build." image={placeholderImages.events.summit2026} />
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:py-28 lg:px-8">
+        <SectionHeading eyebrow="Upcoming" title="Current events" />
         {upcoming.length === 0 ? (
-          <p className="mt-8 max-w-xl border border-ink/15 bg-sand p-6">
+          <p className="mt-8 max-w-xl rounded-2xl border border-ink/10 bg-sand p-6 text-sm leading-relaxed text-ink/70">
             No upcoming events yet. New dates land here first — join the community to hear about them early.
           </p>
         ) : (
@@ -33,8 +34,9 @@ export default async function EventsPage() {
 
         {past.length > 0 && (
           <>
-            <h2 className="mt-20 text-3xl font-bold">Past events</h2>
-            <div className="kente-band kente-band--thin mt-4 max-w-40" aria-hidden="true" />
+            <div className="mt-20">
+              <SectionHeading eyebrow="Archive" title="Past events" />
+            </div>
             <div className="mt-8 grid gap-6 lg:grid-cols-2">
               {past.map((e) => <EventCard key={e.id} event={e} past />)}
             </div>

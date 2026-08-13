@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { HiArrowUpRight } from "react-icons/hi2";
 import Modal from "@/components/modal";
 import { TeamMember } from "@/models/response/team-response";
 
@@ -15,9 +16,9 @@ export default function TeamGrid({ members }: { members: TeamMember[] }) {
           <li key={m.id}>
             <button
               onClick={() => setActive(m)}
-              className="block h-full w-full border border-ink/15 bg-ivory p-6 text-left transition hover:-translate-y-1 hover:border-gold"
+              className="group block h-full w-full rounded-2xl border border-ink/10 bg-ivory p-6 text-left transition hover:-translate-y-1"
             >
-              <div className="relative mb-4 flex h-40 items-center justify-center overflow-hidden rounded-2xl bg-sand font-display text-sm font-bold text-forest">
+              <div className="relative mb-4 flex h-40 items-center justify-center overflow-hidden rounded-2xl bg-sand text-sm font-medium text-forest">
                 {m.photo ? (
                   <Image
                     src={m.photo}
@@ -30,10 +31,13 @@ export default function TeamGrid({ members }: { members: TeamMember[] }) {
                   "Photo"
                 )}
               </div>
-              <h3 className="font-display text-lg font-bold">{m.name}</h3>
+              <p className="text-lg font-medium tracking-tight">{m.name}</p>
               <p className="text-sm font-semibold text-forest">{m.title}</p>
-              <p className="mt-2 text-sm opacity-75">{m.shortBio}</p>
-              <span className="mt-3 inline-block text-sm font-bold text-clay">View full profile →</span>
+              <p className="mt-2 text-sm leading-relaxed text-ink/70">{m.shortBio}</p>
+              <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-gold">
+                View full profile
+                <HiArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </span>
             </button>
           </li>
         ))}
@@ -43,7 +47,7 @@ export default function TeamGrid({ members }: { members: TeamMember[] }) {
         {active && (
           <>
             <p className="font-semibold text-forest">{active.title}</p>
-            <p className="mt-4 opacity-85">{active.fullBio ?? active.shortBio}</p>
+            <p className="mt-4 text-ink/70">{active.fullBio ?? active.shortBio}</p>
             {active.links && (
               <div className="mt-5 flex gap-3">
                 {active.links.map((l) => (

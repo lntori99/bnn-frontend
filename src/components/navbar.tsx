@@ -3,9 +3,9 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Dialog, DialogPanel } from "@headlessui/react";
+import { Dialog, DialogPanel, Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 import { AnimatePresence, motion } from "framer-motion";
-import { HiBars3, HiXMark } from "react-icons/hi2";
+import { HiBars3, HiChevronDown, HiXMark } from "react-icons/hi2";
 import Logo from "./logo";
 import { site } from "@/data/site";
 import { useAppDispatch, useAppSelector } from "@/core/hook";
@@ -41,28 +41,51 @@ export default function Navbar() {
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:bg-gold focus:px-3 focus:py-2">
         Skip to content
       </a>
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 lg:px-8">
         <Logo onDark />
 
         {/* Desktop nav */}
-        <nav aria-label="Main" className="hidden items-center gap-5 xl:flex">
-          {site.nav.slice(0, 6).map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`text-sm  uppercase  transition-colors hover:text-gold ${
-                pathname === item.href ? "text-gold" : "text-ivory/85"
-              }`}
-            >
-              {item.label}
-            </Link>
-          ))}
+        <nav aria-label="Main" className="hidden shrink-0 items-center gap-6 xl:flex">
+          {site.nav.map((item) =>
+            item.children ? (
+              <Popover key={item.href} className="relative shrink-0">
+                <PopoverButton className="inline-flex items-center gap-1 whitespace-nowrap text-sm uppercase text-ivory/85 transition-colors hover:text-gold focus:outline-none data-open:text-gold">
+                  {item.label}
+                  <HiChevronDown className="text-xs transition-transform data-open:rotate-180" />
+                </PopoverButton>
+                <PopoverPanel
+                  transition
+                  className="absolute left-0 top-full z-50 mt-3 w-60 rounded-2xl border border-ivory/10 bg-ink p-2 shadow-2xl transition duration-200 ease-out data-closed:translate-y-1 data-closed:opacity-0"
+                >
+                  {item.children.map((child) => (
+                    <Link
+                      key={child.href}
+                      href={child.href}
+                      className="block whitespace-nowrap rounded-xl px-4 py-2.5 text-sm text-ivory/80 transition-colors hover:bg-ivory/5 hover:text-gold"
+                    >
+                      {child.label}
+                    </Link>
+                  ))}
+                </PopoverPanel>
+              </Popover>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`shrink-0 whitespace-nowrap text-sm uppercase transition-colors hover:text-gold ${
+                  pathname === item.href ? "text-gold" : "text-ivory/85"
+                }`}
+              >
+                {item.label}
+              </Link>
+            )
+          )}
         </nav>
 
-        <div className="hidden items-center gap-3 xl:flex">
+        <div className="hidden shrink-0 items-center gap-3 xl:flex">
           <Link
             href="/community"
-            className="rounded-full border-2 border-ivory/40 px-5 py-2.5 text-xs font-bold uppercase tracking-wide text-ivory transition-colors hover:border-gold hover:text-gold"
+            className="whitespace-nowrap rounded-full border-2 border-ivory/40 px-4 py-2.5 text-xs font-bold uppercase tracking-wide text-ivory transition-colors hover:border-gold hover:text-gold"
           >
             Join the Community
           </Link>
@@ -70,7 +93,7 @@ export default function Navbar() {
             href={site.bookUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-gold px-5 py-2.5 text-xs font-bold uppercase tracking-wide text-ink transition-colors hover:bg-gold-soft"
+            className="whitespace-nowrap rounded-full bg-gold px-4 py-2.5 text-xs font-bold uppercase tracking-wide text-ink transition-colors hover:bg-gold-soft"
           >
             Buy the Book
           </a>
@@ -141,14 +164,29 @@ export default function Navbar() {
 
                   <nav aria-label="Mobile" className="mt-6">
                     {site.nav.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        onClick={closeMenu}
-                        className="block py-2.5 font-display text-lg uppercase text-ivory transition-colors hover:text-gold"
-                      >
-                        {item.label}
-                      </Link>
+                      <div key={item.href}>
+                        <Link
+                          href={item.href}
+                          onClick={closeMenu}
+                          className="block py-2.5 font-display text-lg uppercase text-ivory transition-colors hover:text-gold"
+                        >
+                          {item.label}
+                        </Link>
+                        {item.children && (
+                          <div className="ml-4 border-l border-ivory/10 pl-4">
+                            {item.children.map((child) => (
+                              <Link
+                                key={child.href}
+                                href={child.href}
+                                onClick={closeMenu}
+                                className="block py-2 text-sm text-ivory/60 transition-colors hover:text-gold"
+                              >
+                                {child.label}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     ))}
                   </nav>
 

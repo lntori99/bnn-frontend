@@ -6,9 +6,9 @@ import { EventItem } from "@/models/response/event-response";
 export default function EventCard({ event, past = false }: { event: EventItem; past?: boolean }) {
   const date = new Date(event.startsAt);
   return (
-    <article className={`border ${past ? "border-ink/15 bg-sand" : "on-dark border-gold bg-ink text-ivory"}`}>
+    <article className={`overflow-hidden rounded-2xl border ${past ? "border-ink/10 bg-sand" : "on-dark border-gold/40 bg-ink text-ivory"}`}>
       {event.image && (
-        <div className="relative aspect-video w-full overflow-hidden rounded-2xl">
+        <div className="relative aspect-video w-full overflow-hidden">
           <Image
             src={event.image}
             alt=""
@@ -23,11 +23,11 @@ export default function EventCard({ event, past = false }: { event: EventItem; p
         <p className={`text-xs font-bold uppercase tracking-widest ${past ? "text-clay" : "text-gold"}`}>
           {past ? "Past event" : "Upcoming"}
         </p>
-        <h3 className="mt-2 font-display text-xl font-bold">
+        <p className="mt-2 text-xl font-medium tracking-tight">
           <Link href={`/events/${event.slug}`} className="hover:underline decoration-gold">
             {event.title}
           </Link>
-        </h3>
+        </p>
         <p className={`mt-2 text-sm ${past ? "opacity-70" : "text-ivory/75"}`}>
           {date.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}
           {" · "}{event.isOnline ? "Online" : event.venue} ({event.timezone})

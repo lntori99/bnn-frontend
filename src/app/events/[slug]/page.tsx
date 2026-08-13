@@ -48,7 +48,7 @@ export default async function EventDetailPage({ params }: Props) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <section className="on-dark relative -mt-16 overflow-hidden bg-ink text-ivory">
+      <header className="on-dark relative -mt-16 overflow-hidden bg-ink pb-20 pt-36 text-ivory sm:pb-24 sm:pt-44">
         {event.image && (
           <>
             <Image
@@ -58,20 +58,25 @@ export default async function EventDetailPage({ params }: Props) {
               fill
               priority
               sizes="100vw"
-              className="object-cover opacity-30"
+              className="object-cover opacity-25"
             />
-            <div aria-hidden="true" className="absolute inset-0 bg-linear-to-r from-ink via-ink/85 to-ink/40" />
+            <div aria-hidden="true" className="absolute inset-0 bg-linear-to-t from-ink via-ink/70 to-ink/40" />
           </>
         )}
-        <div className="relative mx-auto max-w-7xl px-4 py-16 lg:px-8">
-          <p className="eyebrow">{isPast ? "Past event" : "Upcoming event"}</p>
-          <h1 className="mt-2 max-w-4xl text-4xl font-bold uppercase sm:text-5xl">{event.title}</h1>
-          <p className="mt-4 text-lg text-ivory/80">
+        <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
+          <span className="inline-flex items-center gap-2 rounded-full border border-gold/50 bg-ivory/5 px-4 py-1.5 text-xs font-light uppercase tracking-wide text-gold backdrop-blur-md">
+            <span className="h-1.5 w-1.5 rounded-full bg-gold shadow-[0_0_8px_var(--color-gold)]" />
+            {isPast ? "Past event" : "Upcoming event"}
+          </span>
+          <h1 className="mt-5 max-w-3xl text-4xl leading-[1.05] tracking-tight text-ivory sm:text-5xl">
+            {event.title}
+          </h1>
+          <p className="mt-6 text-base text-ivory/70 sm:text-lg">
             {date.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}
             {" · "}
             {date.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })} {event.timezone}
           </p>
-          <p className="mt-1 text-ivory/80">{event.isOnline ? event.onlineDetails ?? "Online event" : event.venue}</p>
+          <p className="mt-1 text-ivory/70">{event.isOnline ? event.onlineDetails ?? "Online event" : event.venue}</p>
           {!isPast && <Countdown target={event.startsAt} className="mt-8" />}
           <div className="mt-8 flex flex-wrap gap-4">
             {!isPast && event.registrationUrl && (
@@ -85,28 +90,27 @@ export default async function EventDetailPage({ params }: Props) {
             <Link href="/events" className="inline-flex items-center gap-2 rounded-full border-2 border-current px-6 py-[0.8rem] text-[0.95rem] font-bold transition duration-150 ease-out hover:-translate-y-px focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2 text-ivory">All events</Link>
           </div>
         </div>
-        <div className="kente-band relative" aria-hidden="true" />
-      </section>
+      </header>
 
-      <section className="mx-auto max-w-7xl px-4 py-16 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:py-28 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1fr_360px]">
           <div>
-            <h2 className="text-2xl font-bold">About this event</h2>
-            <p className="mt-4 text-lg opacity-85">{event.description}</p>
+            <p className="text-2xl font-medium tracking-tight">About this event</p>
+            <p className="mt-4 text-base leading-relaxed text-ink/70 sm:text-lg">{event.description}</p>
             {event.agenda && (
               <>
-                <h2 className="mt-10 text-2xl font-bold">Agenda</h2>
-                <p className="mt-4 whitespace-pre-line opacity-85">{event.agenda}</p>
+                <p className="mt-10 text-2xl font-medium tracking-tight">Agenda</p>
+                <p className="mt-4 whitespace-pre-line text-base leading-relaxed text-ink/70 sm:text-lg">{event.agenda}</p>
               </>
             )}
           </div>
-          <aside className="h-fit border-t-4 border-gold bg-sand p-6">
-            <h2 className="font-display text-lg font-bold">Speakers</h2>
+          <aside className="h-fit rounded-2xl border border-ink/10 bg-sand p-6">
+            <p className="text-lg font-medium tracking-tight">Speakers</p>
             <ul className="mt-4 space-y-4">
               {event.speakers.map((s) => (
                 <li key={s.name}>
-                  <p className="font-bold">{s.name}</p>
-                  {s.title && <p className="text-sm opacity-70">{s.title}</p>}
+                  <p className="font-semibold">{s.name}</p>
+                  {s.title && <p className="text-sm text-ink/70">{s.title}</p>}
                 </li>
               ))}
             </ul>

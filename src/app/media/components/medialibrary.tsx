@@ -38,7 +38,7 @@ export default function MediaLibrary({ items }: { items: MediaItem[] }) {
   const reset = () => setPage(1);
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-14 lg:px-8">
+    <section className="mx-auto max-w-7xl px-4 py-20 sm:py-28 lg:px-8">
       <form className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5" onSubmit={(e) => e.preventDefault()} aria-label="Filter media">
         <div className="lg:col-span-1">
           <label htmlFor="media-q">Search</label>
@@ -63,7 +63,7 @@ export default function MediaLibrary({ items }: { items: MediaItem[] }) {
       </form>
 
       {visible.length === 0 ? (
-        <p className="mt-10 border border-ink/15 bg-sand p-6">
+        <p className="mt-10 rounded-2xl border border-ink/10 bg-sand p-6 text-sm leading-relaxed text-ink/70">
           Nothing matches those filters yet. Clear a filter or try a different search term.
         </p>
       ) : (

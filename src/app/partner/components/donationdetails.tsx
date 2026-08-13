@@ -21,10 +21,10 @@ export default function DonationDetails({ details }: { details: Details }) {
   ];
 
   return (
-    <aside className="on-dark h-fit border-4 border-gold bg-ink p-6 text-ivory" aria-label="Donation details">
+    <aside className="on-dark h-fit rounded-2xl bg-ink p-6 text-ivory" aria-label="Donation details">
       <div className="flex items-center gap-2">
         <HiLockClosed className="h-5 w-5 text-gold" aria-hidden="true" />
-        <h2 className="font-display text-lg font-bold">Donate directly</h2>
+        <p className="text-lg font-medium tracking-tight">Donate directly</p>
       </div>
       {/* Bank details are CMS-managed and only published once verified by BNN */}
       {details.verified ? (

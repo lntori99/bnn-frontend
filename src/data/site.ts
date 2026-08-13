@@ -13,12 +13,18 @@ export const site = {
   ],
   nav: [
     { label: "Home", href: "/" },
-    { label: "About BNN", href: "/about" },
-    { label: "Mission & Vision", href: "/mission-vision" },
-    { label: "Lucy Quist & Team", href: "/lucy-quist-team" },
+    {
+      label: "About",
+      href: "/about",
+      children: [
+        { label: "Our Story", href: "/about" },
+        { label: "Mission and Vision", href: "/mission-vision" },
+        { label: "Lucy Quist & Team", href: "/lucy-quist-team" },
+        { label: "2027 Focus", href: "/focus/2027/governance-leadership" },
+      ],
+    },
     { label: "Events", href: "/events" },
     { label: "Media", href: "/media" },
-    { label: "Join the Community", href: "/community" },
     { label: "Partner / Fundraising", href: "/partner" },
     { label: "Join the Team", href: "/join-team" },
   ],
