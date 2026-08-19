@@ -4,14 +4,20 @@ export const site = {
   founder: "Lucy Quist",
   tagline: "Africa's transformation, driven by Africans.",
   description:
-    "Bold New Normal is a pan-African movement turning ambition into enterprise — connecting founders, leaders and builders creating Africa's future.",
+    "The Bold New Normal (TBNN) is a continental vehicle for transformation focused on creating shared prosperity across Africa — turning ideas into a mobilised community of change agents.",
   // Canonical Amazon product URL (ASIN 9988294492). CMS-managed in production.
   bookUrl: "https://www.amazon.com/dp/9988294492",
-  email: "hello@boldnewnormal.org",
+  email: "team@theboldnewnormal.com",
+  youtubeChannelUrl: "https://youtube.com/@lucyquistofficial",
+  podcastPlaylistUrl:
+    "https://youtube.com/playlist?list=PLcIWfQalcywEv6fCtTA4FJ-NZ5DwQdyDr",
+  conferenceRecordingsUrl: "https://theboldnewnormal.systeme.io/tbnncondemand",
+  newsletterUrl: "https://theboldnewnormal.systeme.io/subscribe",
   socials: [
-    { label: "LinkedIn", href: "https://www.linkedin.com/company/boldnewnormal" },
-    { label: "X", href: "https://x.com/boldnewnormal" },
-    { label: "YouTube", href: "https://youtube.com/@boldnewnormal" },
+    { label: "Instagram", href: "https://www.instagram.com/theboldnewnormal" },
+    { label: "YouTube", href: "https://youtube.com/@lucyquistofficial" },
+    { label: "TikTok", href: "https://www.tiktok.com/@the.bold.new.norm" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/groups/9519341" },
   ],
   nav: [
     { label: "Home", href: "/" },

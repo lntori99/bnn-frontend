@@ -1,12 +1,14 @@
 import Link from "next/link";
-import { FiArrowUpRight, FiLinkedin, FiTwitter, FiYoutube } from "react-icons/fi";
+import { FiArrowUpRight, FiInstagram, FiLinkedin, FiYoutube } from "react-icons/fi";
+import { SiTiktok } from "react-icons/si";
 import Logo from "@/components/logo";
 import { navLinks, primaryCtas, site } from "@/data/site";
 
 const socialIcons: Record<string, React.ReactNode> = {
-  LinkedIn: <FiLinkedin />,
-  X: <FiTwitter />,
+  Instagram: <FiInstagram />,
   YouTube: <FiYoutube />,
+  TikTok: <SiTiktok />,
+  LinkedIn: <FiLinkedin />,
 };
 
 export default function Footer() {
@@ -65,6 +67,16 @@ export default function Footer() {
           <p className="mt-8 text-sm text-ivory/50">
             <a href={`mailto:${site.email}`} className="hover:text-gold">
               {site.email}
+            </a>
+          </p>
+          <p className="mt-2 text-sm text-ivory/50">
+            <a
+              href={site.newsletterUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gold"
+            >
+              Subscribe to the newsletter
             </a>
           </p>
         </div>

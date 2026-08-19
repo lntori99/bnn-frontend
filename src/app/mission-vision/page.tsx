@@ -5,7 +5,6 @@ import {
   FiEye,
   FiGlobe,
   FiLayers,
-  FiRefreshCw,
   FiTrendingUp,
   FiUsers,
 } from "react-icons/fi";
@@ -24,29 +23,24 @@ export const metadata: Metadata = {
 
 const themes = [
   {
-    icon: <FiTrendingUp />,
-    t: "Entrepreneurship",
-    d: "Enterprise as the engine that converts ambition into jobs, products and prosperity.",
+    icon: <FiGlobe />,
+    t: "Culture",
+    d: "Shifting the narratives and norms that shape how Africans see prosperity and their own agency.",
   },
   {
     icon: <FiUsers />,
-    t: "Leadership",
-    d: "Developing leaders with the competence and character to steward growth.",
+    t: "Language",
+    d: "Reframing the words we use, because language can either enable or constrain transformation.",
   },
   {
-    icon: <FiGlobe />,
-    t: "African agency",
-    d: "Africans as the authors, owners and primary beneficiaries of Africa's transformation.",
+    icon: <FiTrendingUp />,
+    t: "Leadership",
+    d: "Equipping leaders with the competence and character to steward institutions and enterprises.",
   },
   {
     icon: <FiLayers />,
-    t: "Scalable enterprise",
-    d: "Building beyond survival businesses — toward organisations that scale across borders.",
-  },
-  {
-    icon: <FiRefreshCw />,
-    t: "Sustainable development",
-    d: "Growth that compounds: economically sound, socially grounded, environmentally responsible.",
+    t: "Infrastructure",
+    d: "Building the systems and institutions that let individual change compound into national change.",
   },
 ];
 
@@ -66,9 +60,15 @@ export default function MissionVisionPage() {
                 <FiCompass />
               </AnimatedIcon>
               <p className="eyebrow mt-5">Mission</p>
-              <p className="mt-4 text-2xl font-medium leading-snug tracking-tight sm:text-3xl">
-                To mobilise Africans to build, lead and scale the enterprises
-                and institutions that transform the continent.
+              <p className="mt-4 text-lg leading-relaxed text-ivory/90">
+                TBNN delivers its mission through two complementary roles.
+                First, as a <strong className="font-medium text-ivory">Change Agent Incubator &amp; Community</strong>,
+                it trains, equips and activates a network of change agents to
+                lead transformation in their spheres of passion and influence.
+                Second, as a <strong className="font-medium text-ivory">Thought Leadership Organisation</strong>,
+                it spreads the ethos of a bolder new normal through powerful
+                ideas, insights and ideologies that shift thinking and drive
+                behavioural and systemic change across the continent.
               </p>
             </div>
           </Reveal>
@@ -78,9 +78,13 @@ export default function MissionVisionPage() {
                 <FiEye />
               </AnimatedIcon>
               <p className="eyebrow mt-5">Vision</p>
-              <p className="mt-4 text-2xl font-medium leading-snug tracking-tight sm:text-3xl">
-                An Africa where ambition is normal, excellence is expected, and
-                African-led solutions shape the world.
+              <p className="mt-4 text-lg leading-relaxed text-ivory/90">
+                To be a continental vehicle for transformation that leads to
+                prosperity, where every person has the unfettered opportunity
+                to thrive and fulfil their God-given potential. TBNN catalyses
+                change through culture, language, leadership and
+                infrastructure — starting with individuals and expanding to
+                communities and nations.
               </p>
             </div>
           </Reveal>
@@ -88,8 +92,8 @@ export default function MissionVisionPage() {
 
         <div className="mt-20">
           <SectionHeading
-            eyebrow="What we stand on"
-            title="The commitments that guide the work"
+            eyebrow="How we catalyse change"
+            title="Starting with individuals. Expanding to nations."
           />
         </div>
         <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -115,10 +119,12 @@ export default function MissionVisionPage() {
             </AnimatedIcon>
             <p className="eyebrow mt-5">Long-term impact</p>
             <p className="mt-3 max-w-3xl text-lg leading-relaxed text-ivory/85">
-              Success looks like a measurable shift: more African enterprises
-              operating at scale, more Africans leading globally significant
-              institutions, and a continental narrative defined by what Africans
-              build.
+              The wider vision is the materialisation of a bold new Africa
+              where self-actualisation and prosperity are possible because
+              the right opportunities are created for all to thrive and not
+              merely survive. It calls for a fundamental shift in mindset,
+              leadership and collective responsibility so that the existing
+              status quo is no longer accepted.
             </p>
           </div>
         </Reveal>

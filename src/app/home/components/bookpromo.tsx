@@ -33,11 +33,12 @@ export default function BookPromo() {
             Start where the movement started.
           </p>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-ink/70 sm:text-lg">
-            In <em>The Bold New Normal</em>, Lucy Quist makes the case that has
-            become this movement's foundation: Africa's prosperity will be
-            created by Africans with the confidence to lead, the skills to build
-            and the ambition to scale. Read it, then join the people putting it
-            into practice.
+            <em>The Bold New Normal</em>, authored by Lucy Quist, is the
+            foundational work that inspired the wider TBNN platform. Its ideas
+            underpin TBNN's call for Africans to reject survival thinking and
+            inherited limitations, and to intentionally create the
+            institutions, enterprises, leadership cultures and opportunities
+            required for shared prosperity.
           </p>
           <div className="mt-9 flex flex-wrap gap-3.5">
             <a

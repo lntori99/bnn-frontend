@@ -19,7 +19,12 @@ export default async function EventsPage() {
 
   return (
     <>
-      <PageHeader eyebrow="Events" title="Convene. Connect. Build." image={placeholderImages.events.summit2026} />
+      <PageHeader
+        eyebrow="Events"
+        title="Convene. Connect. Build."
+        lead="The Bold New Normal Flagship Conference has successfully convened four editions in Accra, Ghana — plus a first UK edition in London — establishing itself as a platform for high-level dialogue, leadership formation and cross-sector engagement. Across the conferences, TBNN has convened senior leaders, executives, policymakers, entrepreneurs and emerging leaders; created space for future-focused conversations on prosperity, leadership and institutional development; sparked collaborations and communities of practice; and grown a community committed to rethinking Africa's development through ownership, excellence and collective action."
+        image={placeholderImages.events.conference2027}
+      />
       <section className="mx-auto max-w-7xl px-4 py-20 sm:py-28 lg:px-8">
         <SectionHeading eyebrow="Upcoming" title="Current events" />
         {upcoming.length === 0 ? (

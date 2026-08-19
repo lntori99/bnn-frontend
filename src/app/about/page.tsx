@@ -18,9 +18,9 @@ export default function AboutPage() {
   return (
     <>
       <PageHeader
-        eyebrow="About Bold New Normal"
-        title="Changing what normal means for Africa"
-        lead="Bold New Normal exists because Africa's story is still too often written by others — and its solutions imported. We're changing both."
+        eyebrow="About The Bold New Normal"
+        title="A continental vehicle for transformation"
+        lead="The Bold New Normal (TBNN) challenges Africans to move beyond survival thinking and intentionally shape the institutions, enterprises and leadership cultures that determine economic outcomes."
         image={placeholderImages.hero}
       />
       <section className="bg-white py-20 sm:py-28">
@@ -35,24 +35,41 @@ export default function AboutPage() {
             </p>
             <div className="mt-6 space-y-5 text-sm leading-relaxed text-ink/70 ">
               <p>
-                Bold New Normal was founded by Lucy Quist around a question she
-                kept meeting in boardrooms, classrooms and communities: why do
-                we accept a "normal" for Africa that no one would accept
-                anywhere else?
+                Inspired by Lucy Quist's book, <em>The Bold New Normal</em>,
+                the platform challenges Africans to move beyond survival
+                thinking and intentionally shape the institutions, enterprises
+                and leadership cultures that enable self-actualisation and
+                determine economic outcomes.
               </p>
               <p>
-                Her answer — first argued in the book{" "}
-                <em>The Bold New Normal</em> — is that transformation follows
-                agency. When Africans decide to build, lead and scale solutions
-                themselves, prosperity stops being an aspiration and becomes an
-                outcome. Entrepreneurship is the engine: real enterprises,
-                creating real jobs, solving real problems.
+                TBNN began by expressing a powerful set of ideas and
+                ideologies through the book, conference and podcast, all
+                centred on championing a new mindset for Africa. Its next
+                chapter is a deliberate shift from simply sharing ideas to
+                incubating change: building and mobilising a community of
+                doers equipped to translate those ideas into practical action.
               </p>
               <p>
-                The movement exists to make that answer practical — connecting
-                people into sector communities, focusing each year's energy on
-                one lever of change, and celebrating the builders proving the
-                thesis every day.
+                The Bold New Normal envisages an Africa where prosperity is
+                not exceptional but expected; where people have genuine
+                opportunities to thrive and fulfil their potential; and where
+                ownership, excellence, innovation and economic agency replace
+                subsistence, inherited limitations and passive acceptance of
+                the status quo.
+              </p>
+              <p>
+                The platform catalyses change through culture, language,
+                leadership and infrastructure, beginning with individuals and
+                expanding to communities and nations — through thought
+                leadership, conferences, media, learning, community-building
+                and the activation of change agents.
+              </p>
+              <p>
+                TBNN is aimed at Africans on the continent and across the
+                diaspora who want to contribute to Africa's prosperity —
+                including professionals, entrepreneurs, business leaders,
+                policymakers, investors, students, emerging leaders,
+                institutions and changemakers.
               </p>
             </div>
             <Link

@@ -21,10 +21,18 @@ export const placeholderImages = {
   hero: photo("photo-1630386226447-af0a955c1009", 2000, 1100),
 
   events: {
-    /** Two women at an African conference. */
-    summit2026: photo("photo-1744973149087-179e3ed54eae", 1200, 675),
-    /** Conference audience, low light. */
+    /** 2022 — Taking Action, Creating Prosperity. */
+    conference2022: photo("photo-1591115765373-5207764f72e7", 1200, 675),
+    /** 2023 — Leveraging Opportunity. */
+    conference2023: photo("photo-1560439514-4e9645039924", 1200, 675),
+    /** 2024 — Transforming Mindsets, Creating Leaders of Prosperity. */
+    conference2024: photo("photo-1517245386807-bb43f82c33c4", 1200, 675),
+    /** 2025 — Transformation through Culture and Language. Conference audience, low light. */
     conference2025: photo("photo-1540575467063-178a50c2df87", 1200, 675),
+    /** 2026 — The Power of the Diaspora, London (first UK edition). */
+    diaspora2026: photo("photo-1529107386315-e1a2ed48a620", 1200, 675),
+    /** 2027 — Accra, Ghana (upcoming, Feb 2027). Two women at an African conference. */
+    conference2027: photo("photo-1744973149087-179e3ed54eae", 1200, 675),
   },
 
   media: {
@@ -52,9 +60,9 @@ export const placeholderImages = {
 
   sectors: {
     healthcare: photo("photo-1576091160399-112ba8d25d1d", 1200),
-    realEnterprise: photo("photo-1556761175-b413da4baf72", 1200),
+    education: photo("photo-1523240795612-9a054b0db644", 1200),
     agriculture: photo("photo-1500937386664-56d1dfef3854", 1200),
-    technology: photo("photo-1461749280684-dccba630e2f6", 1200),
-    energyInfrastructure: photo("photo-1509391366360-2e959784a276", 1200),
+    realEnterprise: photo("photo-1556761175-b413da4baf72", 1200),
+    tradeBeyondBorders: photo("photo-1494412574643-ff11b0a5c1c3", 1200),
   },
 } as const;

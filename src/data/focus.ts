@@ -17,7 +17,7 @@ export const focusPages: FocusPage[] = [
     intro:
       "In 2027, Bold New Normal turns the whole movement's attention to one question: what kind of leadership does Africa's transformation require — and how do we build it deliberately?",
     why:
-      "Lucy Quist has long argued that Africa's story is not a resource problem but a leadership opportunity. Enterprises scale where institutions work, capital flows where governance is trusted, and talent stays where leadership creates room to build. Getting governance and leadership right multiplies everything else BNN works on — from healthcare to energy.",
+      "Lucy Quist has long argued that Africa's story is not a resource problem but a leadership opportunity. Enterprises scale where institutions work, capital flows where governance is trusted, and talent stays where leadership creates room to build. Getting governance and leadership right multiplies everything else TBNN works on across the H-E-A-R-T Agenda. The focus culminates in The Bold New Normal Conference Ghana 2027, scheduled for February 2027 in Accra.",
     outcomes: [
       "A shared, practical leadership standard adopted across BNN's sector communities",
       "A cohort of emerging African leaders trained and matched to real institutions",

@@ -1,35 +1,36 @@
 import { Sector } from "@/models/response/content-response";
 import { placeholderImages } from "./placeholder-images";
 
+/** The H-E-A-R-T Agenda — TBNN's five Gateways to Prosperity. */
 export const sectors: Sector[] = [
   {
     key: "healthcare",
     name: "Healthcare",
-    scope: "Health delivery, healthtech, pharmaceuticals, prevention and access.",
+    scope: "Access to healthcare, community health, mental healthcare and awareness, and solutions that respond to African realities.",
     image: placeholderImages.sectors.healthcare,
   },
   {
-    key: "real-enterprise",
-    name: "Real Enterprise",
-    scope: "Businesses that create jobs, build productive capacity and scale sustainable African enterprises.",
-    image: placeholderImages.sectors.realEnterprise,
+    key: "education",
+    name: "Education",
+    scope: "Talent development, reskilling for the digital economy, heritage and language preservation, STEM development and learning support.",
+    image: placeholderImages.sectors.education,
   },
   {
     key: "agriculture",
     name: "Agriculture",
-    scope: "Agribusiness, food systems, processing, productivity and agricultural technology.",
+    scope: "Food security, local seed sovereignty, agricultural technology and innovation, and urban farming.",
     image: placeholderImages.sectors.agriculture,
   },
   {
-    key: "technology",
-    name: "Technology",
-    scope: "Digital infrastructure, software, AI, fintech and technology-enabled solutions.",
-    image: placeholderImages.sectors.technology,
+    key: "real-enterprise",
+    name: "Real Enterprise",
+    scope: "Enterprise creation and growth, entrepreneurship and intrapreneurship, economic empowerment and job creation.",
+    image: placeholderImages.sectors.realEnterprise,
   },
   {
-    key: "energy-infrastructure",
-    name: "Energy & Infrastructure",
-    scope: "Power, clean energy, transport, housing and the infrastructure required for African enterprise to scale.",
-    image: placeholderImages.sectors.energyInfrastructure,
+    key: "trade-beyond-borders",
+    name: "Trade Beyond Borders",
+    scope: "Regional trade, e-commerce, investment, export readiness, compliance and stronger cross-border economic networks.",
+    image: placeholderImages.sectors.tradeBeyondBorders,
   },
 ];
