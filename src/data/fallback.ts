@@ -3,6 +3,7 @@ import { MediaItem } from "@/models/response/media-response";
 import { TeamMember } from "@/models/response/team-response";
 import { RoadmapMilestone, FocusPage } from "@/models/response/content-response";
 import { placeholderImages } from "./placeholder-images";
+import { site } from "./site";
 
 /** Placeholder content — final approved copy is supplied by BNN via the CMS. */
 
@@ -37,7 +38,7 @@ export const fallbackEvents: EventItem[] = [
     timezone: "BST",
     venue: "London, United Kingdom",
     isOnline: false,
-    watchUrl: "/media",
+    watchUrl: site.youtubeChannelUrl,
     status: "past",
   },
   {
@@ -52,7 +53,7 @@ export const fallbackEvents: EventItem[] = [
     timezone: "GMT",
     venue: "Accra, Ghana",
     isOnline: false,
-    watchUrl: "/media",
+    watchUrl: site.youtubeChannelUrl,
     status: "past",
   },
   {
@@ -67,7 +68,7 @@ export const fallbackEvents: EventItem[] = [
     timezone: "GMT",
     venue: "Accra, Ghana",
     isOnline: false,
-    watchUrl: "/media",
+    watchUrl: site.youtubeChannelUrl,
     status: "past",
   },
   {
@@ -82,7 +83,7 @@ export const fallbackEvents: EventItem[] = [
     timezone: "GMT",
     venue: "Accra, Ghana",
     isOnline: false,
-    watchUrl: "/media",
+    watchUrl: site.youtubeChannelUrl,
     status: "past",
   },
   {
@@ -97,7 +98,7 @@ export const fallbackEvents: EventItem[] = [
     timezone: "GMT",
     venue: "Accra, Ghana",
     isOnline: false,
-    watchUrl: "/media",
+    watchUrl: site.youtubeChannelUrl,
     status: "past",
   },
 ];

@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import Countdown from "@/components/countdown";
 import CTASection from "@/components/ctasection";
 import { getEvent, getEvents } from "@/services/events";
+import EventDetailContent from "../components/eventdetailcontent";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -27,7 +28,8 @@ export default async function EventDetailPage({ params }: Props) {
   if (!event) notFound();
 
   const date = new Date(event.startsAt);
-  const isPast = event.status === "past" || date.getTime() < Date.now();
+  const eventEnd = new Date(event.endsAt ?? event.startsAt);
+  const isPast = event.status === "past" || eventEnd.getTime() < Date.now();
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -109,12 +111,14 @@ export default async function EventDetailPage({ params }: Props) {
               </a>
             )}
             {isPast && event.watchUrl && (
-              <Link
+              <a
                 href={event.watchUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-[#d6ac63] px-4 py-2 text-sm font-medium text-ink transition duration-150 ease-out hover:-translate-y-px hover:bg-[#d6ac63]-soft focus-visible:outline-[3px] focus-visible:outline-gold focus-visible:outline-offset-2"
               >
                 Watch / Listen
-              </Link>
+              </a>
             )}
             <Link
               href="/events"
@@ -126,39 +130,7 @@ export default async function EventDetailPage({ params }: Props) {
         </div>
       </header>
 
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:py-28 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-[1fr_360px]">
-          <div>
-            <p className="text-2xl font-medium tracking-tight">
-              About this event
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-ink/70 sm:text-lg">
-              {event.description}
-            </p>
-            {event.agenda && (
-              <>
-                <p className="mt-10 text-2xl font-medium tracking-tight">
-                  Agenda
-                </p>
-                <p className="mt-4 whitespace-pre-line text-base leading-relaxed text-ink/70 sm:text-lg">
-                  {event.agenda}
-                </p>
-              </>
-            )}
-          </div>
-          <aside className="h-fit rounded-2xl border border-ink/10 bg-sand p-6">
-            <p className="text-lg font-medium tracking-tight">Speakers</p>
-            <ul className="mt-4 space-y-4">
-              {event.speakers.map((s) => (
-                <li key={s.name}>
-                  <p className="font-semibold">{s.name}</p>
-                  {s.title && <p className="text-sm text-ink/70">{s.title}</p>}
-                </li>
-              ))}
-            </ul>
-          </aside>
-        </div>
-      </section>
+      <EventDetailContent event={event} isPast={isPast} />
       <CTASection />
     </>
   );
